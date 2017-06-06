@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+ <head>
+
+          <!--other script and also external css included over here-->
+ </head>
+ <title>les6  practicum1</title>
+	 <body>
+     <label id="label1"></label>
+
+   </body>
+   <script src="https://code.jquery.com/jquery-3.2.0.min.js"></script>
+   <script>
+   window.addEventListener('storage', function(event) {
+	   console.log("storage : " + event.storageArea + localStorage.getItem("txt"));
+	   load()
+	   });
+
+   function load(){
+	   $('#label1').append("<p>"+localStorage.getItem("txt")+"</p>");
+   }
+   </script>
+</html>

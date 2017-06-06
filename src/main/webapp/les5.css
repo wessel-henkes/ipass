@@ -1,0 +1,99 @@
+html{
+  	background-color	: 	lightgray;
+  	width				:	100%;
+}
+
+body{
+	margin				: 	0;
+	width				:	100%;
+}
+
+div { border: solid thin; }
+
+@media only screen and (max-width: 750px) {
+	#frame {
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: 1fr;
+	}
+	#myLocation { grid-column: 1; grid-row: 1; }
+	#weatherInfo{ grid-column: 1; grid-row: 2; }
+}
+
+@media only screen and (min-width: 750px) {
+	#frame {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	/* grid-template-rows: 1fr 1fr; */
+	}
+	#myLocation { grid-column: 1; grid-row: 1; }
+	#weatherInfo{ grid-column: 2; grid-row: 1; }
+}
+
+label{
+	width				: 	40%;
+	float				: 	left;
+	padding-left		: 	10px;
+
+}
+#countryTitle{
+	width				: 	99%;
+	float				: 	left;
+	padding-left		: 	1%;
+	background-color	:	gray;
+	line-height  		: 	normal;
+	margin: 0;
+	color				:	white;
+}
+
+#myLocation h2, #weatherInfo h2{
+	width				: 	97%;
+	float				: 	left;
+	padding-left		: 	3%;
+	background-color	:	gray;
+	line-height  		: 	normal;
+	color				:	white;
+	margin				: 	0;
+}
+
+
+
+#weatherInfo label{
+	width				: 	40%;
+	float				: 	left;
+	padding-left		: 	10px;
+}
+
+th{
+	text-align			: 	left;
+	width				: 	100px;
+	background-color	: 	#999999;
+}
+	
+td{
+	width				:	100px;
+}
+
+table{
+	background-color	:	darkgray;
+	width 				: 	100%;
+	padding-left		:	1%px;
+	table-layout		: fixed;
+}
+
+#countryList{
+	overflow-x			:	auto;
+	width 				: 	100%;
+}
+
+td, th, #dataIPCity{
+	cursor				:	pointer;
+}
+
+td:hover, #dataIPCity:hover{
+	color				:	white;
+}
+
+th:hover{
+	background-color	:	white;
+}
