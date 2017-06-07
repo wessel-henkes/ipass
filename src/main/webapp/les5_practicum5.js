@@ -102,17 +102,18 @@ function secToDate(sec){
 }
 
 function loadCountries(){
-		$.get("http://localhost:8888/firstapp/restservices/countries/" ,function(data){
+	$.ajax({
+		url: "restservices/countries/",
+		method: "GET",
+		success: function (data) {
 			$.each(data,function(i, item){
 				var city = item.capital;
 				var test = '"';
 				var link = "onclick='showWeather("+item.latitude+","+item.longitude+","+test+city+test+")'";
 				$("table").append("<tr ><td "+link+" >" + item.name +"</td><td "+link+">" + item.capital + "</td><td "+link+">" + item.region + "</td><td "+link+">" + item.surfacearea + "</td><td "+link+">" + item.population +"</td></tr>")
-				
+			})}
 			})
-		})
 }
-
 
 function removeElement(){
 	try{
