@@ -96,7 +96,7 @@ function sort(myInput,x) {
 
 
 function deleteCountry(country){
-	var uri = "/firstapp/restservices/countries/"+country;
+	var uri = "restservices/countries/"+country;
 	$.ajax(uri, {
 		type: "delete",
 		beforeSend: function (xhr) {
@@ -117,7 +117,7 @@ $("#updateCountryForm").on('submit',function (e) {
 //}
 	console.log("update starting")
 	console.log( $("#updateCountryForm").serialize());
-	var uri = "/firstapp/restservices/countries/" + $("#code3").val();
+	var uri = "/restservices/countries/" + $("#code3").val();
 	$.ajax(uri, {
 		type: "put",
 		beforeSend: function (xhr) {
@@ -140,7 +140,7 @@ $("#updateCountryForm").on('submit',function (e) {
 
 $("#newCountryForm").on('submit',function (e) {
 	
-	var uri = "/firstapp/restservices/countries/";
+	var uri = "/restservices/countries/";
 	$.ajax(uri, {
 		type: "post",
 		beforeSend: function (xhr) {
