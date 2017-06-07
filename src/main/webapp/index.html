@@ -2,13 +2,18 @@
 <html>
  <header><h1>Index</h1></header>
 	 <body>
-		<p onclick="function(){	window.location.href = 'Servlets.html';}">DynamicServlet & calculator servlet</p><br>
-	 	<p onclick="function(){	window.location.href = 'Calculator.html';}">rekenmachine</p><br>
-	 	<p onclick="function(){	window.location.href = 'les3practicum1.html';}">les3practicum1</p><br>
-	 	<p onclick="function(){	window.location.href = 'les5_practicum5.html';}">les5 practicums</p><br>
-	 	<p onclick="function(){	window.location.href = 'les6_practicum1_1.html';}">les6 practicum1.1</p><br>
-	 	<p onclick="function(){	window.location.href = 'les6_practicum1_2.html';}">les6 practicum1.2</p><br>
-	 	<p onclick="function(){	window.location.href = 'les8_practicum1.html';}">les8 practicum1</p><br>
-	 	<p onclick="function(){	window.location.href = 'errorpage.html';}">errorpage</p>
+		<button onclick="go('Servlets.html')">DynamicServlet & calculator servlet</button><br>
+	 	<button onclick="go('Calculator.html')">rekenmachine</button><br>
+	 	<button onclick="go('les3practicum1.html')">les3practicum1</button><br>
+	 	<button onclick="go('les5_practicum5.html')">les5 practicums</button><br>
+	 	<button onclick="go('les6_practicum1_1.html')">les6 practicum1.1</button><br>
+	 	<button onclick="go('les6_practicum1_2.html')">les6 practicum1.2</button><br>
+	 	<button onclick="go('les8_practicum1.html')">les8 practicum1</button><br>
+	 	<button onclick="go('errorpage.html')">errorpage</button>
 	 </body>
+	 <script>
+	 function go(x){
+		 window.location.href = x;
+	 }
+	 </script>
 </html>
