@@ -1,7 +1,7 @@
 window.onload = initPage();
 
 function initPage(){
-
+	loadCountries();
 	$.get("http://ip-api.com/json",function(data){
 		var test = '"';
 		var link = "onclick='showWeather("+data.lat+","+data.lon+","+test+data.city+test+")'";
@@ -23,7 +23,7 @@ function initPage(){
 		$(ip).after(("<label id='dataIP'>"+ data.query+"</label>"))
 		
 		showWeather(data.lat, data.lon, data.city);
-		loadCountries();
+		
 	})
 	}
 
