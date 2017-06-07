@@ -9,7 +9,7 @@ public class UserDAO extends BaseDAO {
 	 public String findRoleForUsernameAndPassword(String username, String password) {
 	 String role = null;
 	 char x = '"';
-	 String query = "SELECT role FROM Useraccount WHERE username = ? AND password = ?";
+	 String query = "SELECT role FROM useraccount WHERE username = ? AND password = ?";
 	 System.out.println(query);
 	 try (Connection con = super.getConnection()) {
 
