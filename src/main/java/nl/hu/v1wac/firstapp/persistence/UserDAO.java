@@ -31,7 +31,7 @@ public class UserDAO extends BaseDAO {
 	 public String findTeamForUsernameAndPassword(String username, String password) {
 			System.out.println("getting team from db");
 			String team = null;
-			String query = "SELECT teamID FROM useraccount WHERE username = ? AND password = ?";
+			String query = "SELECT team_id FROM useraccount WHERE username = ? AND password = ?";
 			System.out.println(query);
 			try (Connection con = super.getConnection()) {
 				PreparedStatement pstmt = con.prepareStatement(query);
@@ -40,12 +40,12 @@ public class UserDAO extends BaseDAO {
 				System.out.println(pstmt);
 				ResultSet rs = pstmt.executeQuery();
 				if (rs.next()){
-					 team = rs.getString("teamID");
+					 team = rs.getString("team_id");
 				}
 			} catch (SQLException sqle) {
 				sqle.printStackTrace();
 			}
-			System.out.println("teamID="+team);
+			System.out.println("team_id="+team);
 			return team;
 		}	 
 	 

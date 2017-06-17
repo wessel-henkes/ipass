@@ -7,8 +7,9 @@ $("#post").click(function(event){
 	console.log("data = "+data);
 	$.post("restservices/app/team",data,function(response){
 		console.log(data)
+		console.log(response)
 	})
-//		window.sessionStorage.setItem("sessionToken", response);
+//		window.sessionStorage.setItem("teamID", response);
 		
 	$.post("restservices/authentication",data,function(response){
 		window.sessionStorage.setItem("sessionToken", response);
