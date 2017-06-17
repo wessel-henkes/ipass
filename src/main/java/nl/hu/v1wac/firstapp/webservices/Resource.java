@@ -12,10 +12,9 @@ import nl.hu.v1wac.firstapp.persistence.UserDAO;
 
 
 @Path("/app")
-public class TeamResource {
+public class Resource {
 	
 	@POST
-//	@RolesAllowed("user")
 	@Produces("application/json")
 	@Path("/team")
 	public String getTeam(@FormParam("username") String username,@FormParam("password") String password) {
@@ -24,7 +23,7 @@ public class TeamResource {
 		
 		JsonObjectBuilder job = Json.createObjectBuilder();
 		String teamID = dao.findTeamForUsernameAndPassword(username, password);
-		job.add("teamID",teamID);
+		job.add("team_id",teamID);
 		return job.build().toString();
 	}		
 }
