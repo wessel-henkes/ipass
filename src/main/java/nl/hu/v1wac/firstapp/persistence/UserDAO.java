@@ -27,4 +27,26 @@ public class UserDAO extends BaseDAO {
 	 System.out.println("Rol="+role);
 	 return role;
 	 }
-	}
+	 
+	 public String findTeamForUsernameAndPassword(String username, String password) {
+			System.out.println("getting team from db");
+			String team = null;
+			String query = "SELECT teamID FROM useraccount WHERE username = ? AND password = ?";
+			System.out.println(query);
+			try (Connection con = super.getConnection()) {
+				PreparedStatement pstmt = con.prepareStatement(query);
+				pstmt.setString(1, username);
+				pstmt.setString(2, password);
+				System.out.println(pstmt);
+				ResultSet rs = pstmt.executeQuery();
+				if (rs.next()){
+					 team = rs.getString("teamID");
+				}
+			} catch (SQLException sqle) {
+				sqle.printStackTrace();
+			}
+			System.out.println("teamID="+team);
+			return team;
+		}	 
+	 
+}
