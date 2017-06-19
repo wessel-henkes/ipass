@@ -41,7 +41,7 @@ public class Resource {
 	}		
 	
 	@POST
-	@RolesAllowed("user")
+	@RolesAllowed({"user","admin"})
 	@Produces("application/json")
 	@Path("/wedstrijden")
 	public String getWedstrijden(@FormParam("team_id") int team_id) {
