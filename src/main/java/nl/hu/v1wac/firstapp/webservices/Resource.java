@@ -45,6 +45,7 @@ public class Resource {
 	@Produces("application/json")
 	@Path("/wedstrijden")
 	public String getWedstrijden(@FormParam("team_id") int team_id) {
+		System.out.println(team_id);
 		WedstrijdDAO dao = new WedstrijdDAO();
 		TeamDAO tdao = new TeamDAO();
 		JsonArrayBuilder jab = Json.createArrayBuilder();
