@@ -35,7 +35,7 @@ public class WedstrijdDAO extends BaseDAO{
 			}
 			con.close();
 		} catch (SQLException sqle) {
-			//sqle.printStackTrace();
+			sqle.printStackTrace();
 		}
 		return results;
 	}
