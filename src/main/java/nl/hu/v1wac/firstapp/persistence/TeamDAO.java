@@ -20,9 +20,10 @@ public class TeamDAO extends BaseDAO {
 		try (Connection con = super.getConnection()) {
 			Statement stmt = con.createStatement();
 			ResultSet dbResultSet = stmt.executeQuery(query);
-			
-			r0 = dbResultSet.getString("naam");
-			
+			while (dbResultSet.next()) {
+				r0 = dbResultSet.getString("naam");
+				break;
+			}
 			
 			con.close();
 		} catch (SQLException sqle) {
