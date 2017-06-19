@@ -11,6 +11,7 @@ import nl.hu.v1wac.firstapp.model.Wedstrijd;
 
 public class WedstrijdDAO extends BaseDAO{
 	public List<Wedstrijd> getAllWedstrijden(int team_id){
+		System.out.println("getting wedstrijden from database");
 		return selectWedstrijden("SELECT * FROM wedstrijden ORDER BY datum asc WHERE team_uit="+team_id+" OR team_thuis="+team_id+";");
 	}
 	
@@ -20,7 +21,7 @@ public class WedstrijdDAO extends BaseDAO{
 		try (Connection con = super.getConnection()) {
 			Statement stmt = con.createStatement();
 			ResultSet dbResultSet = stmt.executeQuery(query);
-			
+			System.out.println("connected to database");
 			while (dbResultSet.next()) {
 				int r0 = dbResultSet.getInt("id");
 				int r1 = dbResultSet.getInt("competitie_id");
@@ -28,7 +29,9 @@ public class WedstrijdDAO extends BaseDAO{
 				int r3 = dbResultSet.getInt("team_thuis");
 				String r4 = dbResultSet.getString("datum");
 				String r5 = dbResultSet.getString("tijd");	
-				results.add(new Wedstrijd(r0,r1,r2,r3,r4,r5));
+				Wedstrijd w = new Wedstrijd(r0,r1,r2,r3,r4,r5);
+				System.out.println(w);
+				results.add(w);
 			}
 			con.close();
 		} catch (SQLException sqle) {
