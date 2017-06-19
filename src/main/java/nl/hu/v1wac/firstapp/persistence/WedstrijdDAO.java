@@ -11,7 +11,7 @@ import nl.hu.v1wac.firstapp.model.Wedstrijd;
 
 public class WedstrijdDAO extends BaseDAO{
 	public List<Wedstrijd> getAllWedstrijden(int team_id){
-		System.out.println("getting wedstrijden from database");
+		System.out.println("getting wedstrijden from database where team_id="+team_id);
 		return selectWedstrijden("SELECT * FROM wedstrijden WHERE team_uit="+team_id+" OR team_thuis="+team_id+" ORDER BY datum ASC;");
 	}
 	
