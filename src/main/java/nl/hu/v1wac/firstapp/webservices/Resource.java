@@ -56,7 +56,7 @@ public class Resource {
 			job.add("competitie_id", w.getCompetitie_id());
 			job.add("team_uit_id", w.getTeam_uit());
 			
-			System.out.println(tdao.getTeamName(w.getTeam_uit()));
+			System.out.println(tdao.getTeamName(w.getTeam_uit())+" team_uit="+w.getTeam_uit());
 			job.add("team_uit", 	tdao.getTeamName(w.getTeam_uit()));
 			job.add("team_thuis_id", w.getTeam_thuis());
 			job.add("team_thuis", 	tdao.getTeamName(w.getTeam_thuis()));
