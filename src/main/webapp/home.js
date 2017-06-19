@@ -1,15 +1,16 @@
 window.onload = loadWedstrijden();
 
-function loadWestrijden(){
+function loadWedstrijden(){
 	
 	$.ajax({
 		url: "restservices/app/wedstrijden",
 		method: "POST",
+		data:{ team_id: window.sessionStorage.getItem("team_id")},
 		beforeSend: function (xhr) {
 		var token = window.sessionStorage.getItem("sessionToken");
 		xhr.setRequestHeader( 'Authorization', 'Bearer ' + token);
 		},
-		data:{ team_id: window.sessionStorage.getItem("team_id")},
+		
 		success: function (data) {
 		/* Handle countryList */
 			$.each(data,function(i, item){
