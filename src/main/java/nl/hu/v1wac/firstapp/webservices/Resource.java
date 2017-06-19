@@ -142,7 +142,7 @@ public class Resource {
 	@POST
 	@RolesAllowed("admin")
 	@Produces("application/json")
-	@Path("/opstelling")
+	@Path("/opstelling/aanwezig")
 	public Response createOpstelling(@FormParam("wedstrijd_id") int wedstrijd_id,@FormParam("speler_id") int speler_id,
 		@FormParam("team_id") int team_id) {
 		Response out = Response.status(Response.Status.CONFLICT).build();
