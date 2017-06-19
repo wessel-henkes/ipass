@@ -61,12 +61,14 @@ public class Resource {
 			if(w.getTijd() ==null)							{job.add("tijd","-");}				else{job.add("tijd", w.getTijd());}
 			jab.add(job);
 		}
+		
 		JsonArray array = jab.build();
+		System.out.println(array.toString());
 		return array.toString();
 	}
 	
 	@POST
-	@RolesAllowed("admin")
+	@RolesAllowed({"user","admin"})
 	@Produces("application/json")
 	@Path("/spelers")
 	public String getSpelers(@FormParam("team_id") int team_id) {
@@ -84,7 +86,7 @@ public class Resource {
 		return array.toString();
 	}
 	@POST
-	@RolesAllowed("admin")
+	@RolesAllowed({"user","admin"})
 	@Produces("application/json")
 	@Path("/opstelling")
 	public String getAanwezigByTeam(@FormParam("wedstrijd_id") int wedstrijd_id, @FormParam("team_id") int team_id) {
@@ -140,7 +142,7 @@ public class Resource {
 	}
 	
 	@POST
-	@RolesAllowed("admin")
+	@RolesAllowed({"user","admin"})
 	@Produces("application/json")
 	@Path("/opstelling/aanwezig")
 	public Response createOpstelling(@FormParam("wedstrijd_id") int wedstrijd_id,@FormParam("speler_id") int speler_id,
@@ -155,7 +157,7 @@ public class Resource {
 	}
 	
 	@PUT
-	@RolesAllowed("admin")
+	@RolesAllowed({"user","admin"})
 	@Produces("application/json")
 	@Path("/opstelling/slagvolgorde")
 	public Response setSlagvolgorde(@FormParam("wedstrijd_id") int wedstrijd_id,
@@ -174,7 +176,7 @@ public class Resource {
 	}
 	
 	@PUT
-	@RolesAllowed("admin")
+	@RolesAllowed({"user","admin"})
 	@Path("/opstelling/veldpositie")
 	@Produces("application/json")
 	public Response setVeldposities(@FormParam("wedstrijd_id") int wedstrijd_id,
@@ -193,7 +195,7 @@ public class Resource {
 	}
 
 	@DELETE
-	@RolesAllowed("admin")
+	@RolesAllowed({"user","admin"})
 	@Path("/opstelling")
 	public Response deleteOpstellingByWedstrijd(@FormParam("wedstrijd_id") int wedstrijd_id) {
 		System.out.println("delete in progres");
