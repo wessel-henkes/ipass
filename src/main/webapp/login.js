@@ -14,7 +14,7 @@ $("#post").click(function(event){
 
 		sessionStorage.setItem('sessionToken',response);
 		console.log("sessionToken = "+response);
-		window.location.href = 'les8_practicum1.html';
+		window.location.href = 'home.html';
 	}).fail(function(jqXHR, textStatus, errorThrown) {
 		console.log(textStatus);
 		console.log(errorThrown);
