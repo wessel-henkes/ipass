@@ -1,9 +1,6 @@
 package nl.hu.v1wac.firstapp.webservices;
 
 
-import java.sql.Date;
-import java.sql.Time;
-
 import javax.annotation.security.RolesAllowed;
 import javax.json.Json;
 import javax.json.JsonArray;
@@ -11,20 +8,14 @@ import javax.json.JsonArrayBuilder;
 import javax.json.JsonObjectBuilder;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.FormParam;
-import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
 
-import nl.hu.v1wac.firstapp.model.Country;
-import nl.hu.v1wac.firstapp.model.CountryService;
 import nl.hu.v1wac.firstapp.model.Opstelling;
-import nl.hu.v1wac.firstapp.model.ServiceProvider;
 import nl.hu.v1wac.firstapp.model.Speler;
-import nl.hu.v1wac.firstapp.model.Team;
 import nl.hu.v1wac.firstapp.model.Wedstrijd;
 import nl.hu.v1wac.firstapp.persistence.OpstellingDAO;
 import nl.hu.v1wac.firstapp.persistence.SpelerDAO;
@@ -113,7 +104,7 @@ public class Resource {
 	@POST
 	@RolesAllowed("user")
 	@Produces("application/json")
-	@Path("/opstelling")
+	@Path("/opstelling/slagvolgorde")
 	public String getSlagvolgordeByTeam(@FormParam("wedstrijd_id") int wedstrijd_id, @FormParam("team_id") int team_id) {
 		OpstellingDAO dao = new OpstellingDAO();
 		SpelerDAO sdao = new SpelerDAO();
@@ -132,7 +123,7 @@ public class Resource {
 	@POST
 	@RolesAllowed("user")
 	@Produces("application/json")
-	@Path("/opstelling")
+	@Path("/opstelling/veldpositie")
 	public String getVeldpositiesByTeam(@FormParam("wedstrijd_id") int wedstrijd_id, @FormParam("team_id") int team_id) {
 		OpstellingDAO dao = new OpstellingDAO();
 		SpelerDAO sdao = new SpelerDAO();

@@ -1,8 +1,5 @@
 package nl.hu.v1wac.firstapp.model;
 
-import java.sql.Date;
-import java.sql.Time;
-
 public class Wedstrijd {
 	private int id;
 	private int competitie_id;

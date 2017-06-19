@@ -35,16 +35,16 @@ public class WorldResource {
 			if(c.getRegion() ==null)						{job.add("region","-");}else{job.add("region", c.getRegion());}
 			job.add("surfacearea", c.getSurfacearea());
 			job.add("population", c.getPopulation());
-			if(new Integer(c.getIndepyear()) ==null)		{job.add("indepyear","-");}else{job.add("indepyear", c.getIndepyear());}
-			if(new Integer(c.getLifeexpectancy()) ==null)	{job.add("lifeexpectancy","-");}else{job.add("lifeexpectancy", c.getLifeexpectancy());}
-			if(new Integer(c.getGnp()) ==null)				{job.add("gnp","-");}else{job.add("gnp", c.getGnp());}
-			if(new Integer(c.getGnpold()) == null)			{job.add("gnpold","-");}else{job.add("gnpold", c.getGnpold());	}
+			job.add("indepyear", c.getIndepyear());
+			job.add("lifeexpectancy", c.getLifeexpectancy());
+			job.add("gnp", c.getGnp());
+			job.add("gnpold", c.getGnpold());
 			if(c.getLocalname() ==null)						{job.add("localname","-");}else{job.add("localname", c.getLocalname());			}
 			if(c.getGovernmentform() ==null)				{job.add("governmentform","-");}else{job.add("governmentform", c.getGovernmentform());}
 			if(c.getHeadofstate() ==null)					{job.add("headofstate","-");}else{job.add("headofstate", c.getHeadofstate());}
 			if(c.getCode2() ==null)							{job.add("code2","-");}else{job.add("code2", c.getCode2());}
-			if(new Double(c.getLatitude()) ==null)			{job.add("latitude","-");}else{job.add("latitude", c.getLatitude());}
-			if(new Double(c.getLongitude())==null)			{job.add("longitude","-");}else{job.add("longitude", c.getLongitude());}
+			job.add("latitude", c.getLatitude());
+			job.add("longitude", c.getLongitude());
 			if(c.getCapital() ==null)						{job.add("capital","-");}else{job.add("capital", c.getCapital());}
 			jab.add(job);
 		}
@@ -67,16 +67,16 @@ public class WorldResource {
 			if(c.getRegion() ==null)						{job.add("region","-");}else{job.add("region", c.getRegion());}
 			job.add("surfacearea", c.getSurfacearea());
 			job.add("population", c.getPopulation());
-			if(new Integer(c.getIndepyear()) ==null)		{job.add("indepyear","-");}else{job.add("indepyear", c.getIndepyear());}
-			if(new Integer(c.getLifeexpectancy()) ==null)	{job.add("lifeexpectancy","-");}else{job.add("lifeexpectancy", c.getLifeexpectancy());}
-			if(new Integer(c.getGnp()) ==null)				{job.add("gnp","-");}else{job.add("gnp", c.getGnp());}
-			if(new Integer(c.getGnpold()) == null)			{job.add("gnpold","-");}else{job.add("gnpold", c.getGnpold());	}
+			job.add("indepyear", c.getIndepyear());
+			job.add("lifeexpectancy", c.getLifeexpectancy());
+			job.add("gnp", c.getGnp());
+			job.add("gnpold", c.getGnpold());
 			if(c.getLocalname() ==null)						{job.add("localname","-");}else{job.add("localname", c.getLocalname());			}
 			if(c.getGovernmentform() ==null)				{job.add("governmentform","-");}else{job.add("governmentform", c.getGovernmentform());}
 			if(c.getHeadofstate() ==null)					{job.add("headofstate","-");}else{job.add("headofstate", c.getHeadofstate());}
 			if(c.getCode2() ==null)							{job.add("code2","-");}else{job.add("code2", c.getCode2());}
-			if(new Double(c.getLatitude()) ==null)			{job.add("latitude","-");}else{job.add("latitude", c.getLatitude());}
-			if(new Double(c.getLongitude())==null)			{job.add("longitude","-");}else{job.add("longitude", c.getLongitude());}
+			job.add("latitude", c.getLatitude());
+			job.add("longitude", c.getLongitude());
 			if(c.getCapital() ==null)						{job.add("capital","-");}else{job.add("capital", c.getCapital());}
 
 			jab.add(job);
@@ -101,16 +101,16 @@ public class WorldResource {
 			if(c.getRegion() ==null)						{job.add("region","-");}else{job.add("region", c.getRegion());}
 			job.add("surfacearea", c.getSurfacearea());
 			job.add("population", c.getPopulation());
-			if(new Integer(c.getIndepyear()) ==null)		{job.add("indepyear","-");}else{job.add("indepyear", c.getIndepyear());}
-			if(new Integer(c.getLifeexpectancy()) ==null)	{job.add("lifeexpectancy","-");}else{job.add("lifeexpectancy", c.getLifeexpectancy());}
-			if(new Integer(c.getGnp()) ==null)				{job.add("gnp","-");}else{job.add("gnp", c.getGnp());}
-			if(new Integer(c.getGnpold()) == null)			{job.add("gnpold","-");}else{job.add("gnpold", c.getGnpold());	}
+			job.add("indepyear", c.getIndepyear());
+			job.add("lifeexpectancy", c.getLifeexpectancy());
+			job.add("gnp", c.getGnp());
+			job.add("gnpold", c.getGnpold());
 			if(c.getLocalname() ==null)						{job.add("localname","-");}else{job.add("localname", c.getLocalname());			}
 			if(c.getGovernmentform() ==null)				{job.add("governmentform","-");}else{job.add("governmentform", c.getGovernmentform());}
 			if(c.getHeadofstate() ==null)					{job.add("headofstate","-");}else{job.add("headofstate", c.getHeadofstate());}
 			if(c.getCode2() ==null)							{job.add("code2","-");}else{job.add("code2", c.getCode2());}
-			if(new Double(c.getLatitude()) ==null)			{job.add("latitude","-");}else{job.add("latitude", c.getLatitude());}
-			if(new Double(c.getLongitude())==null)			{job.add("longitude","-");}else{job.add("longitude", c.getLongitude());}
+			job.add("latitude", c.getLatitude());
+			job.add("longitude", c.getLongitude());
 			if(c.getCapital() ==null)						{job.add("capital","-");}else{job.add("capital", c.getCapital());}
 
 			jab.add(job);
@@ -135,16 +135,16 @@ public class WorldResource {
 			if(c.getRegion() ==null)						{job.add("region","-");}else{job.add("region", c.getRegion());}
 			job.add("surfacearea", c.getSurfacearea());
 			job.add("population", c.getPopulation());
-			if(new Integer(c.getIndepyear()) ==null)		{job.add("indepyear","-");}else{job.add("indepyear", c.getIndepyear());}
-			if(new Integer(c.getLifeexpectancy()) ==null)	{job.add("lifeexpectancy","-");}else{job.add("lifeexpectancy", c.getLifeexpectancy());}
-			if(new Integer(c.getGnp()) ==null)				{job.add("gnp","-");}else{job.add("gnp", c.getGnp());}
-			if(new Integer(c.getGnpold()) == null)			{job.add("gnpold","-");}else{job.add("gnpold", c.getGnpold());	}
+			job.add("indepyear", c.getIndepyear());
+			job.add("lifeexpectancy", c.getLifeexpectancy());
+			job.add("gnp", c.getGnp());
+			job.add("gnpold", c.getGnpold());
 			if(c.getLocalname() ==null)						{job.add("localname","-");}else{job.add("localname", c.getLocalname());			}
 			if(c.getGovernmentform() ==null)				{job.add("governmentform","-");}else{job.add("governmentform", c.getGovernmentform());}
 			if(c.getHeadofstate() ==null)					{job.add("headofstate","-");}else{job.add("headofstate", c.getHeadofstate());}
 			if(c.getCode2() ==null)							{job.add("code2","-");}else{job.add("code2", c.getCode2());}
-			if(new Double(c.getLatitude()) ==null)			{job.add("latitude","-");}else{job.add("latitude", c.getLatitude());}
-			if(new Double(c.getLongitude())==null)			{job.add("longitude","-");}else{job.add("longitude", c.getLongitude());}
+			job.add("latitude", c.getLatitude());
+			job.add("longitude", c.getLongitude());
 			if(c.getCapital() ==null)						{job.add("capital","-");}else{job.add("capital", c.getCapital());}
 
 		}else{
@@ -182,16 +182,16 @@ public class WorldResource {
 		if(c.getRegion() ==null)						{job.add("region","-");}else{job.add("region", c.getRegion());}
 		job.add("surfacearea", c.getSurfacearea());
 		job.add("population", c.getPopulation());
-		if(new Integer(c.getIndepyear()) ==null)		{job.add("indepyear","-");}else{job.add("indepyear", c.getIndepyear());}
-		if(new Integer(c.getLifeexpectancy()) ==null)	{job.add("lifeexpectancy","-");}else{job.add("lifeexpectancy", c.getLifeexpectancy());}
-		if(new Integer(c.getGnp()) ==null)				{job.add("gnp","-");}else{job.add("gnp", c.getGnp());}
-		if(new Integer(c.getGnpold()) == null)			{job.add("gnpold","-");}else{job.add("gnpold", c.getGnpold());	}
+		job.add("indepyear", c.getIndepyear());
+		job.add("lifeexpectancy", c.getLifeexpectancy());
+		job.add("gnp", c.getGnp());
+		job.add("gnpold", c.getGnpold());
 		if(c.getLocalname() ==null)						{job.add("localname","-");}else{job.add("localname", c.getLocalname());			}
 		if(c.getGovernmentform() ==null)				{job.add("governmentform","-");}else{job.add("governmentform", c.getGovernmentform());}
 		if(c.getHeadofstate() ==null)					{job.add("headofstate","-");}else{job.add("headofstate", c.getHeadofstate());}
 		if(c.getCode2() ==null)							{job.add("code2","-");}else{job.add("code2", c.getCode2());}
-		if(new Double(c.getLatitude()) ==null)			{job.add("latitude","-");}else{job.add("latitude", c.getLatitude());}
-		if(new Double(c.getLongitude())==null)			{job.add("longitude","-");}else{job.add("longitude", c.getLongitude());}
+		job.add("latitude", c.getLatitude());
+		job.add("longitude", c.getLongitude());
 		if(c.getCapital() ==null)						{job.add("capital","-");}else{job.add("capital", c.getCapital());}
 
 		return job;
