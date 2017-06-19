@@ -11,7 +11,7 @@ import nl.hu.v1wac.firstapp.model.Team;
 
 public class TeamDAO extends BaseDAO {
 	public String getTeamName(int team_id){
-		return selectTeamName("SELECT naam FROM teams WHERE team_id="+team_id+";");
+		return selectTeamName("SELECT naam FROM teams WHERE id="+team_id+";");
 	}
 	
 	private String selectTeamName(String query) {
