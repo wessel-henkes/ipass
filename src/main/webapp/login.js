@@ -18,6 +18,7 @@ $("#post").click(function(event){
 	}).fail(function(jqXHR, textStatus, errorThrown) {
 		console.log(textStatus);
 		console.log(errorThrown);
+		alert("De opgegeven gebruikersnaam of het wachtwoord is onjuist.")
 		});
 
 })
