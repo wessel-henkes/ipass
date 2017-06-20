@@ -11,7 +11,7 @@ import nl.hu.v1wac.firstapp.model.Speler;
 
 public class SpelerDAO extends BaseDAO {
 	public List<Speler> getSpelersByTeam(int team_id){
-		return selectSpelers("SELECT  voornaam::text || ' ' || achternaam::text AS naam, team_id, id FROM spelers WHERE team_id="+team_id+";");
+		return selectSpelers("SELECT  CONCAT(CONCAT(voornaam,' '),achternaam) AS naam, team_id, id FROM spelers WHERE team_id="+team_id+";");
 	}
 	
 	private List<Speler> selectSpelers(String query) {
@@ -38,7 +38,7 @@ public class SpelerDAO extends BaseDAO {
 
 	public String getSpelerNaam(int speler_id) {
 		String result = null;
-		String query ="SELECT  voornaam::text || ' ' || achternaam::text AS naam FROM spelers WHERE speler_id="+speler_id+";";
+		String query ="SELECT CONCAT(CONCAT(voornaam,' '),achternaam) AS naam FROM spelers WHERE speler_id="+speler_id+";";
 		try (Connection con = super.getConnection()) {
 			Statement stmt = con.createStatement();
 			ResultSet dbResultSet = stmt.executeQuery(query);
