@@ -133,7 +133,7 @@ public List<Opstelling> getAanwezigByWedstrijdByTeam(int wedstrijd_id, int team_
 	
 	public boolean insertAanwezigen(Opstelling o){
 		String query = "INSERT INTO opstelling (speler_id, team_id, wedstrijd_id)  "
-				+ " VALUES ('"+o.getSpeler_id()+"','"+o.getTeam_id()+"',"+o.getWedstrijd_id()+"');";
+				+ " VALUES ("+o.getSpeler_id()+","+o.getTeam_id()+","+o.getWedstrijd_id()+");";
 		System.out.println(query);
 		boolean out = false;
 		try (Connection con = super.getConnection()) {
