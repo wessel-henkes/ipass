@@ -19,14 +19,14 @@ function loadWedstrijden(){
 			$.each(data,function(i, item){
 				console.log(item);
 				var x = "'"
-				$("#wedstrijden").append('<div class="col-3 col-m-3 "><div class="card"><div class="container"><h4><b>'+item.team_thuis+' tegen '+item.team_uit+' </b></h4><p>datum: '+item.datum+'</p><p>tijd:'+item.tijd+'</p><button class="button"><span><b>opstelling bekijken</b></span></button><button class="button" onclick='+x+'opstellingInvoeren('+item+')'+x+'><span><b>opstelling invoeren</b></span></button><button class="button" onclick=""><span><b>opstelling aanpassen</b></span></button></div></div></div>');
+				$("#wedstrijden").append('<div class="col-3 col-m-3 "><div class="card"><div class="container"><h4><b>'+item.team_thuis+' tegen '+item.team_uit+' </b></h4><p>datum: '+item.datum+'</p><p>tijd:'+item.tijd+'</p><button class="button"><span><b>opstelling bekijken</b></span></button><button class="button" onclick='+x+'opstellingInvoeren('+JSON.stringify(item)+')'+x+'><span><b>opstelling invoeren</b></span></button><button class="button" onclick=""><span><b>opstelling aanpassen</b></span></button></div></div></div>');
 			})	
 		}
 	})
 }
 
 function opstellingInvoeren(item){
-	window.sessionStorage.setItem("WedstrijdData", JSON.stringify(item));
+	window.sessionStorage.setItem("WedstrijdData", item);
 	window.sessionStorage.setItem("WedstrijdStatus", "aanwezig_thuis");
 	window.location.href = 'aanwezig.html';
 }
