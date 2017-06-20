@@ -15,10 +15,8 @@ $.ajax({
 			
 			$.each(data,function(i, item){
 				console.log(item);
-				$("#Spelers").append('<input id="Speler_Checkbox'+i+'" class="Speler_Checkbox" type="checkbox" value="'+item.id+'"/>'+item.naam+'<br>')
-		})
-			$("#Spelers").append('<input type="button" id="save_value" name="save_value" value="Save" />')
-				
+				$("#save_value").prepend('<input id="Speler_Checkbox'+i+'" class="Speler_Checkbox" type="checkbox" value="'+item.id+'"/>'+item.naam+'<br>')
+			})
 		}
 	})
 }	
