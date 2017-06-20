@@ -51,9 +51,40 @@ html {
     font-size: 12px;
     padding: 15px;
 }
-/* For mobile phones: */
-[class*="col-"] {
-    width: 100%;
+
+@media only screen and (min-width: 700px) {
+ 	/* For mobile phones: */
+	.card{min-width:300px;}
+	.col-m-1 {width: 100%;}
+    .col-m-2 {width: 100%;}
+    .col-m-3 {width: 100%;}
+    .col-m-4 {width: 100%;}
+    .col-m-5 {width: 100%;}
+    .col-m-6 {width: 100%;}
+    .col-m-7 {width: 100%;}
+    .col-m-8 {width: 100%;}
+    .col-m-9 {width: 100%;}
+    .col-m-10 {width: 100%;}
+    .col-m-11 {width: 100%;}
+    .col-m-12 {width: 100%;}
+}
+
+
+@media only screen and (min-width: 700px) {
+    /* For tablets: */
+	.card{min-width:300px;}
+	.col-m-1 {width: 50%;}
+    .col-m-2 {width: 50%;}
+    .col-m-3 {width: 50%;}
+    .col-m-4 {width: 50%;}
+    .col-m-5 {width: 50%;}
+    .col-m-6 {width: 50%;}
+    .col-m-7 {width: 50%;}
+    .col-m-8 {width: 50%;}
+    .col-m-9 {width: 50%;}
+    .col-m-10 {width: 50%;}
+    .col-m-11 {width: 50%;}
+    .col-m-12 {width: 50%;}
 }
 
 
@@ -80,7 +111,6 @@ html {
     transition: 0.3s;
     width: 100%;
     min-height:210px;
-    
 }
 
 .card:hover {
@@ -90,13 +120,6 @@ html {
 .container {
     padding: 2px 16px;
 }
-
-/* button{ */
-/* 	float:right; */
-/*     background-color: rgba(13, 114, 203, 0.79); */
-/*     border-width: 0; */
-/*     color: white; */
-/* } */
 
 .button {
 	border-radius: 5px;
@@ -109,7 +132,6 @@ html {
     transition: all 0.5s;
     cursor: pointer;
     margin-bottom: 5px;
-
 }
 
 .button span {
@@ -137,19 +159,3 @@ html {
   right: 0;
 }
 
-@media only screen and (min-width: 700px) {
-    /* For tablets: */
-	.card{min-width:300px;}
-	.col-m-1 {width: 50%;}
-    .col-m-2 {width: 50%;}
-    .col-m-3 {width: 50%;}
-    .col-m-4 {width: 50%;}
-    .col-m-5 {width: 50%;}
-    .col-m-6 {width: 50%;}
-    .col-m-7 {width: 50%;}
-    .col-m-8 {width: 50%;}
-    .col-m-9 {width: 50%;}
-    .col-m-10 {width: 50%;}
-    .col-m-11 {width: 50%;}
-    .col-m-12 {width: 50%;}
-}
