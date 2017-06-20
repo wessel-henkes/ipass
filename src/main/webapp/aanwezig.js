@@ -72,7 +72,7 @@ $('#save_value').click(function () {
         return this.value;
     }).get();
     console.log(arr);
-    if (arr.length()>9){
+    if (arr.length>9){
 	console.log("submit");
 	SetSpelers(arr);
     }else {
