@@ -17,7 +17,7 @@ $.ajax({
 				console.log(item);
 				$("#Spelers").append('<input type="checkbox" class="checked"name="speler_id" value="'+item.id+'"/>'+item.naam+'<br>')
 		})
-			$("#Spelers").append('<button id="submit">opslaan</button>')
+			$("#Spelers").append('<button type="button" id="submit">opslaan</button>')
 				
 		}
 	})
