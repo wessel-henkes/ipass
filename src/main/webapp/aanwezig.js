@@ -37,7 +37,7 @@ function load(){
 }
 
 
-$('#myform').validate({
+$('#Spelers').validate({
     rules: {
         checkbox_name: {
            required: true,
