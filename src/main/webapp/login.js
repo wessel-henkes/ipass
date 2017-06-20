@@ -6,12 +6,13 @@ $("#post").click(function(event){
 	var data = $("#login").serialize();
 	console.log("data = "+data);
 	$.post("restservices/app/team",data,function(response){
-		console.log(response)
+		console.log(response);
 		window.sessionStorage.setItem("team_id", response.team_id);
 	})	
 	$.post("restservices/app/role",data,function(response){
 		console.log(response)
 		window.sessionStorage.setItem("role", response.role);
+		console.log(response.role)
 	})	
 	$.post("restservices/authentication",data,function(response){
 		window.sessionStorage.setItem("sessionToken", response);
