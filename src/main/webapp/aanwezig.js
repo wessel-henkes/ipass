@@ -15,9 +15,10 @@ $.ajax({
 			
 			$.each(data,function(i, item){
 				console.log(item);
-				$("#Spelers").append('<input type="checkbox" name="aanwezig" value="'+item.id+'">'+item.naam+'<br>')
-		}
-			)	
+				$("#Spelers").append('<input type="checkbox" name="aanwezig" value="'+item.id+'"/>'+item.naam+'<br>')
+		})
+			$("#Spelers").append('<input type="submit">')
+				
 		}
 	})
 }	
@@ -34,3 +35,15 @@ function load(){
 		getSpelers(item.team_uit_id);
 	}
 }
+
+
+$('#myform').validate({
+    rules: {
+        checkbox_name: {
+           required: true,
+           minlength: 9  // at least two checkboxes are required
+           // maxlength: 4 // less than 5 checkboxes are required
+           // rangelength: [2,4] // must select 2, 3, or 4 checkboxes
+        }
+    }
+});
