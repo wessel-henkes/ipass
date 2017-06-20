@@ -7,6 +7,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.ws.rs.FormParam;
 
 import nl.hu.v1wac.firstapp.model.Opstelling;
 
@@ -131,22 +132,26 @@ public List<Opstelling> getAanwezigByWedstrijdByTeam(int wedstrijd_id, int team_
 		
 	}
 	
-	public boolean insertAanwezigen(Opstelling o){
-		String query = "INSERT INTO opstelling (speler_id, team_id, wedstrijd_id)  "
-				+ " VALUES ("+o.getSpeler_id()+","+o.getTeam_id()+","+o.getWedstrijd_id()+");";
-		System.out.println(query);
+	public boolean insertAanwezigen(int wedstrijd_id,List<Integer> speler_id_arr,int team_id){
+		
+		
 		boolean out = false;
+		System.out.println(speler_id_arr);
 		try (Connection con = super.getConnection()) {
 			Statement stmt = con.createStatement();
-			stmt.executeUpdate(query);
-			System.out.println(query);
+			for (int speler_id : speler_id_arr){
+				String query = "INSERT INTO opstelling (speler_id, team_id, wedstrijd_id)  "
+						+ " VALUES ("+speler_id+","+team_id+","+wedstrijd_id+");";
+				System.out.println(query);
+				stmt.executeUpdate(query);
+			}
 			con.close();
 			out = true;
 		} catch (SQLException sqle) {
 			sqle.printStackTrace();
 		}
 		return out;
-		//return findOpstellingByCode(o.getCode());		
+		
 	}
 	
 	

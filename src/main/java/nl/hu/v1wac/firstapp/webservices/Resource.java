@@ -168,16 +168,13 @@ public class Resource {
 	@FormParam("team_id") int team_id) {
 		System.out.println("speler_id_arr="+speler_id_arr);
 		Response out = Response.status(Response.Status.CONFLICT).build();
-		for (int speler_id : speler_id_arr){
-			System.out.println(speler_id);
-			Opstelling newOpstelling= new Opstelling(speler_id,team_id,wedstrijd_id);
-			OpstellingDAO dao = new OpstellingDAO();
-			if (dao.insertAanwezigen(newOpstelling) == true){
-				out = Response.ok().build();
-			}else{
-				out = Response.status(Response.Status.CONFLICT).build();
-			};
-		}
+		OpstellingDAO dao = new OpstellingDAO();
+		if (dao.insertAanwezigen(wedstrijd_id,speler_id_arr,team_id) == true){
+			out = Response.ok().build();
+		}else{
+			out = Response.status(Response.Status.CONFLICT).build();
+		};
+		
 		return out;
 	}
 	
