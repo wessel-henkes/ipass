@@ -17,7 +17,7 @@ $.ajax({
 				console.log(item);
 				$("#Spelers").append('<input type="checkbox" class="Speler_Checkbox" name="speler_id" value="'+item.id+'"/>'+item.naam+'<br>')
 		})
-			$("#Spelers").append('<button type="button" id="save_value">opslaan</button>')
+			$("#Spelers").append('<input type="button" id="save_value" name="save_value" value="Save" />')
 				
 		}
 	})
@@ -54,12 +54,14 @@ function load(){
 
 
 $('#save_value').click(function () {
+	console.log("saving");
     var arr = $('.Speler_Checkbox:checked').map(function () {
+    	console.log(this.value);
         return this.value;
     }).get();
     console.log(arr);
     if (arr.length()>9){
-    	console.log("submit")
+    	console.log("submit");
     }else {
         // Display warning here
     	alert("Er moeten minimaal 9 spelers aanwezig zijn.");
