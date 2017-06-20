@@ -53,10 +53,11 @@ $('#save_value').click(function () {
 function SetSpelers(speler_id_arr){
 	var item = JSON.parse(window.sessionStorage.getItem("WedstrijdData"));
 	var deel = window.sessionStorage.getItem("WedstrijdStatus");
+	var wedstrijd_id =item.id;
 	if (deel == "aanwezig_thuis"){
 		var team_id = item.team_thuis_id;
 		window.sessionStorage.setItem("WedstrijdStatus","aanwezig_uit")
-		var wedstrijd_id =item.id;
+		
 		
 		$.ajax({
 				url: "restservices/app/opstelling/aanwezig",
