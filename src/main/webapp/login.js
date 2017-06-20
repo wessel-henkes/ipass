@@ -9,7 +9,7 @@ $("#post").click(function(event){
 		console.log(response)
 		window.sessionStorage.setItem("team_id", response.team_id);
 	})	
-	$.post("restservices/app/team",data,function(response){
+	$.post("restservices/app/role",data,function(response){
 		console.log(response)
 		window.sessionStorage.setItem("role", response.role);
 	})	
