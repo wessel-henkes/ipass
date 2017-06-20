@@ -123,7 +123,7 @@ public class Resource {
 	}
 	
 	@POST
-	@RolesAllowed("user")
+	@RolesAllowed({"user","admin"})
 	@Produces("application/json")
 	@Path("/opstelling/slagvolgorde")
 	public String getSlagvolgordeByTeam(@FormParam("wedstrijd_id") int wedstrijd_id, @FormParam("team_id") int team_id) {
@@ -142,7 +142,7 @@ public class Resource {
 	}
 	
 	@POST
-	@RolesAllowed("user")
+	@RolesAllowed({"user","admin"})
 	@Produces("application/json")
 	@Path("/opstelling/veldpositie")
 	public String getVeldpositiesByTeam(@FormParam("wedstrijd_id") int wedstrijd_id, @FormParam("team_id") int team_id) {
@@ -161,11 +161,12 @@ public class Resource {
 	}
 	
 	@PUT
-	@RolesAllowed({"user","admin"})
+	@RolesAllowed("admin")
 	@Produces("application/json")
 	@Path("/opstelling/aanwezig")
 	public Response createOpstelling(@FormParam("wedstrijd_id") int wedstrijd_id,@FormParam("speler_id_arr") List<Integer> speler_id_arr,
 	@FormParam("team_id") int team_id) {
+		System.out.println("speler_id_arr="+speler_id_arr);
 		Response out = Response.status(Response.Status.CONFLICT).build();
 		for (int speler_id : speler_id_arr){
 			System.out.println(speler_id);
@@ -181,7 +182,7 @@ public class Resource {
 	}
 	
 	@PUT
-	@RolesAllowed({"user","admin"})
+	@RolesAllowed("admin")
 	@Produces("application/json")
 	@Path("/opstelling/slagvolgorde")
 	public Response setSlagvolgorde(@FormParam("wedstrijd_id") int wedstrijd_id,
@@ -200,7 +201,7 @@ public class Resource {
 	}
 	
 	@PUT
-	@RolesAllowed({"user","admin"})
+	@RolesAllowed("admin")
 	@Path("/opstelling/veldpositie")
 	@Produces("application/json")
 	public Response setVeldposities(@FormParam("wedstrijd_id") int wedstrijd_id,
@@ -219,7 +220,7 @@ public class Resource {
 	}
 
 	@DELETE
-	@RolesAllowed({"user","admin"})
+	@RolesAllowed("admin")
 	@Path("/opstelling")
 	public Response deleteOpstellingByWedstrijd(@FormParam("wedstrijd_id") int wedstrijd_id) {
 		System.out.println("delete in progres");
