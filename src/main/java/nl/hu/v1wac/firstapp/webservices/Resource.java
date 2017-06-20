@@ -1,6 +1,8 @@
 package nl.hu.v1wac.firstapp.webservices;
 
 
+import java.util.List;
+
 import javax.annotation.security.RolesAllowed;
 import javax.json.Json;
 import javax.json.JsonArray;
@@ -162,14 +164,18 @@ public class Resource {
 	@RolesAllowed({"user","admin"})
 	@Produces("application/json")
 	@Path("/opstelling/aanwezig")
-	public Response createOpstelling(@FormParam("wedstrijd_id") int wedstrijd_id,@FormParam("speler_id") int speler_id,
+	public Response createOpstelling(@FormParam("wedstrijd_id") int wedstrijd_id,@FormParam("speler_id_arr") List<Integer> speler_id_arr,
 	@FormParam("team_id") int team_id) {
 		Response out = Response.status(Response.Status.CONFLICT).build();
-		Opstelling newOpstelling= new Opstelling(speler_id,team_id,wedstrijd_id);
-		OpstellingDAO dao = new OpstellingDAO();
-		if (dao.insertAanwezigen(newOpstelling) == true){
-			out = Response.ok().build();
-		};
+		for (int speler_id : speler_id_arr){
+			Opstelling newOpstelling= new Opstelling(speler_id,team_id,wedstrijd_id);
+			OpstellingDAO dao = new OpstellingDAO();
+			if (dao.insertAanwezigen(newOpstelling) == true){
+				out = Response.ok().build();
+			}else{
+				out = Response.status(Response.Status.CONFLICT).build();
+			};
+		}
 		return out;
 	}
 	

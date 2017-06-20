@@ -81,8 +81,32 @@ $('#save_value').click(function () {
     }
 });
 
-function SetSpelers(team_id){
-	$.ajax({
+function SetSpelers(speler_id_arr){
+	var item = JSON.parse(window.sessionStorage.getItem("WedstrijdData"));
+	var deel = window.sessionStorage.getItem("WedstrijdStatus");
+	if (deel == "aanwezig_thuis"){
+		var team_id = item.team_thuis_id;
+		window.sessionStorage.setItem("WedstrijdStatus","aanwezig_uit")
+		var wedstrijd_id =item.id;
+		
+		$.ajax({
+				url: "restservices/app/aanwezig",
+				method: 'POST',
+				data:{"team_id":team_id,"wedstrijd_id":wedstrijd_id,"speler_id_arr":speler_id_arr},
+				beforeSend: function (xhr) {
+					var token = window.sessionStorage.getItem("sessionToken");
+					xhr.setRequestHeader( 'Authorization', 'Bearer ' + token);
+				},
+				
+				success: function (data) {
+					console.log(data);
+	
+				}
+		})
+		
+	}else if (deel == "aanwezig_uit"){
+		var team_id = item.team_uit_id;
+		$.ajax({
 			url: "restservices/app/spelers",
 			method: 'POST',
 			data:{"team_id":team_id,"wedstrijd_id":wedstrijd_id,"speler_id_arr":speler_id_arr},
@@ -100,7 +124,10 @@ function SetSpelers(team_id){
 					$("#Spelers").append('<input type="checkbox" name="aanwezig" value="'+item.id+'"/>'+item.naam+'<br>');
 				})
 				$("#Spelers").append('<input type="submit">');
-					
+				window.location.href = 'slagvolgorde.html';
 			}
+			
 	})
+	}
+	
 }
