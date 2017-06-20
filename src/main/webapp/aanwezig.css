@@ -55,14 +55,8 @@ html {
 [class*="col-"] {
     width: 100%;
 }
-@media only screen and (min-width: 700px) {
-    /* For tablets: */
-	[class*="col-"] {
-    	width: 100%;
-	}
-	.card{min-width:300px;}
-	
-}
+
+
 @media only screen and (min-width: 1300px) {
     /* For desktop: */
     .col-1 {width: 8.33%;}
@@ -142,3 +136,8 @@ html {
   opacity: 1;
   right: 0;
 }
+
+@media only screen and (min-width: 700px) {
+    /* For tablets: */
+	[class*="col-"] { 	width: 100%;}
+	.card{min-width:300px;}
