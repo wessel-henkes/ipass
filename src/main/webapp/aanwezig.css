@@ -139,5 +139,17 @@ html {
 
 @media only screen and (min-width: 700px) {
     /* For tablets: */
-	[class*="col-"] { 	width: 100%;}
 	.card{min-width:300px;}
+	.col-m-1 {width: 50%;}
+    .col-m-2 {width: 50%;}
+    .col-m-3 {width: 50%;}
+    .col-m-4 {width: 50%;}
+    .col-m-5 {width: 50%;}
+    .col-m-6 {width: 50%;}
+    .col-m-7 {width: 50%;}
+    .col-m-8 {width: 50%;}
+    .col-m-9 {width: 50%;}
+    .col-m-10 {width: 50%;}
+    .col-m-11 {width: 50%;}
+    .col-m-12 {width: 50%;}
+}
