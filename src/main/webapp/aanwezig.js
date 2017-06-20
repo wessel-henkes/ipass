@@ -35,44 +35,13 @@ function load(){
 }
 
 
-//$("#submit").click(function(e) {
-//    if ($(":checked").length >= 9){
-//        // Submit your form here
-//    	$('input[type=checkbox]:checked').map(function(_, el) {
-//    	    console.log($(el).val());
-//    		return $(el).val();
-//    	}).get();
-//    	
-//    	
-//	}else {
-//        // Display warning here
-//    	alert("Er moeten minimaal 9 spelers aanwezig zijn.");
-//    }
-//});
-
-//$(document).ready(function() {
-//	$('#save_value').click(function () {
-//		console.log("saving");
-//	    var arr = $('.Speler_Checkbox:checked').map(function () {
-//	    	console.log(this.value);
-//	        return this.value;
-//	    }).get();
-//	    console.log(arr);
-//	    if (arr.length()>9){
-//	    	console.log("submit");
-//	    }else {
-//	        // Display warning here
-//	    	alert("Er moeten minimaal 9 spelers aanwezig zijn.");
-//	    }
-//	});
-//})
 
 $('#save_value').click(function () {
     var arr = $('.Speler_Checkbox:checked').map(function () {
         return this.value;
     }).get();
     console.log(arr);
-    if (arr.length>9){
+    if (arr.length>=9){
 	console.log("submit");
 	SetSpelers(arr);
     }else {
@@ -90,7 +59,7 @@ function SetSpelers(speler_id_arr){
 		var wedstrijd_id =item.id;
 		
 		$.ajax({
-				url: "restservices/app/aanwezig",
+				url: "restservices/app/opstelling/aanwezig",
 				method: 'POST',
 				data:{"team_id":team_id,"wedstrijd_id":wedstrijd_id,"speler_id_arr":speler_id_arr},
 				beforeSend: function (xhr) {
@@ -100,14 +69,14 @@ function SetSpelers(speler_id_arr){
 				
 				success: function (data) {
 					console.log(data);
-	
+					window.location.href = 'aanwezig.html';
 				}
 		})
 		
 	}else if (deel == "aanwezig_uit"){
 		var team_id = item.team_uit_id;
 		$.ajax({
-			url: "restservices/app/spelers",
+			url: "restservices/app/opstelling/aanwezig",
 			method: 'POST',
 			data:{"team_id":team_id,"wedstrijd_id":wedstrijd_id,"speler_id_arr":speler_id_arr},
 			beforeSend: function (xhr) {
@@ -117,13 +86,6 @@ function SetSpelers(speler_id_arr){
 			
 			success: function (data) {
 				console.log(data);
-				/* Handle data */
-				
-				$.each(data,function(i, item){
-					console.log(item);
-					$("#Spelers").append('<input type="checkbox" name="aanwezig" value="'+item.id+'"/>'+item.naam+'<br>');
-				})
-				$("#Spelers").append('<input type="submit">');
 				window.location.href = 'slagvolgorde.html';
 			}
 			
