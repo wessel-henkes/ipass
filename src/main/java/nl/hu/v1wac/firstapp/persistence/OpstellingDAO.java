@@ -41,7 +41,7 @@ public class OpstellingDAO extends BaseDAO {
 public List<Opstelling> getAanwezigByWedstrijdByTeam(int wedstrijd_id, int team_id){
 		
 		String query = "SELECT speler_id, team_id FROM Opstelling WHERE wedstrijd_id="+wedstrijd_id+"AND team_id="+team_id+";";
-		
+		System.out.println(query);
 		List<Opstelling> results = new ArrayList<Opstelling>();
 		
 		try (Connection con = super.getConnection()) {
@@ -57,7 +57,7 @@ public List<Opstelling> getAanwezigByWedstrijdByTeam(int wedstrijd_id, int team_
 			}
 			con.close();
 		} catch (SQLException sqle) {
-			//sqle.printStackT
+			sqle.printStackTrace();
 		}
 		return results;	
 	

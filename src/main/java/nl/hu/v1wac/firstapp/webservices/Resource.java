@@ -160,7 +160,7 @@ public class Resource {
 		return array.toString();
 	}
 	
-	@POST
+	@PUT
 	@RolesAllowed({"user","admin"})
 	@Produces("application/json")
 	@Path("/opstelling/aanwezig")
@@ -168,6 +168,7 @@ public class Resource {
 	@FormParam("team_id") int team_id) {
 		Response out = Response.status(Response.Status.CONFLICT).build();
 		for (int speler_id : speler_id_arr){
+			System.out.println(speler_id);
 			Opstelling newOpstelling= new Opstelling(speler_id,team_id,wedstrijd_id);
 			OpstellingDAO dao = new OpstellingDAO();
 			if (dao.insertAanwezigen(newOpstelling) == true){
