@@ -72,6 +72,13 @@ $('#save_value').click(function () {
         return this.value;
     }).get();
     console.log(arr);
+    if (arr.length()>9){
+	console.log("submit");
+	SetSpelers(arr);
+    }else {
+    	// Display warning here
+    	alert("Er moeten minimaal 9 spelers aanwezig zijn.");
+    }
 });
 
 function SetSpelers(team_id){
