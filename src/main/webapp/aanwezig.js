@@ -40,7 +40,10 @@ function load(){
 $("#submit").click(function(e) {
     if ($(":checked").length >= 9){
         // Submit your form here
-    	console.log($('input[type=checkbox]:checked').map(function(_, el) {	    console.log($(el).val());return $(el).val();}).get(););
+    	$('input[type=checkbox]:checked').map(function(_, el) {
+    	    console.log($(el).val());
+    		return $(el).val();
+    	}).get();
     	
     	
 	}else {
