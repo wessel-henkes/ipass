@@ -53,7 +53,7 @@ function load(){
 //});
 
 $(document).ready(function() {
-	$('#save_value').onclick(function () {
+	$('#save_value').click(function () {
 		console.log("saving");
 	    var arr = $('.Speler_Checkbox:checked').map(function () {
 	    	console.log(this.value);
