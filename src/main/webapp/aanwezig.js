@@ -10,7 +10,7 @@ $.ajax({
 		},
 		
 		success: function (data) {
-			console.log(data)
+			console.log(data);
 			/* Handle data */
 			
 			$.each(data,function(i, item){
@@ -23,7 +23,9 @@ $.ajax({
 }	
 function load(){
 	var item = JSON.parse(window.sessionStorage.getItem("WedstrijdData"));
+	console.log(item);
 	var deel = window.sessionStorage.getItem("WedstrijdStatus");
+	console.log(deel);
 	if (deel == "aanwezig_thuis"){
 		$(".header").append('<h1>Aanwezigheid '+item.team_thuis+'</h1>');
 		getSpelers(item.team_thuis_id);

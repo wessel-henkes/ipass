@@ -89,9 +89,10 @@ public class Resource {
 	@Path("/spelers")
 	public String getSpelers(@FormParam("team_id") int team_id) {
 		SpelerDAO dao = new SpelerDAO();
-
+		System.out.println(team_id);
 		JsonArrayBuilder jab = Json.createArrayBuilder();
 		for (Speler s : dao.getSpelersByTeam(team_id)) {
+			System.out.println(s);
 			JsonObjectBuilder job = Json.createObjectBuilder();
 			job.add("id", s.getId());
 			job.add("naam", s.getNaam());
