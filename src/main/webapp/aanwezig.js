@@ -15,7 +15,7 @@ $.ajax({
 			
 			$.each(data,function(i, item){
 				console.log(item);
-				$("#Spelers").append('<input type="checkbox" name="speler_id" value="'+item.id+'"/>'+item.naam+'<br>')
+				$("#Spelers").append('<input type="checkbox" class="checked"name="speler_id" value="'+item.id+'"/>'+item.naam+'<br>')
 		})
 			$("#Spelers").append('<button id="submit">opslaan</button>')
 				
@@ -40,7 +40,8 @@ function load(){
 $("#submit").click(function(e) {
     if ($(":checked").length >= 9){
         // Submit your form here
-    	console.log($("#spelers").serialize())
+    	console.log($('input[type=checkbox]:checked').map(function(_, el) {	    console.log($(el).val());return $(el).val();}).get(););
+    	
     	
 	}else {
         // Display warning here
