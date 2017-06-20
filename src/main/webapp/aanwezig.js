@@ -60,7 +60,7 @@ function SetSpelers(speler_id_arr){
 		
 		$.ajax({
 				url: "restservices/app/opstelling/aanwezig",
-				method: 'POST',
+				method: 'PUT',
 				data:{"team_id":team_id,"wedstrijd_id":wedstrijd_id,"speler_id_arr":speler_id_arr},
 				beforeSend: function (xhr) {
 					var token = window.sessionStorage.getItem("sessionToken");
@@ -77,7 +77,7 @@ function SetSpelers(speler_id_arr){
 		var team_id = item.team_uit_id;
 		$.ajax({
 			url: "restservices/app/opstelling/aanwezig",
-			method: 'POST',
+			method: 'PUT',
 			data:{"team_id":team_id,"wedstrijd_id":wedstrijd_id,"speler_id_arr":speler_id_arr},
 			beforeSend: function (xhr) {
 				var token = window.sessionStorage.getItem("sessionToken");
