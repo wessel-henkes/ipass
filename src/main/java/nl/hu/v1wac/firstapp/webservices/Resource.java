@@ -164,7 +164,7 @@ public class Resource {
 	@RolesAllowed("admin")
 	@Produces("application/json")
 	@Path("/opstelling/aanwezig")
-	public Response createOpstelling(@FormParam("wedstrijd_id") int wedstrijd_id,@FormParam("speler_id_arr") List<Integer> speler_id_arr,
+	public Response createOpstelling(@FormParam("wedstrijd_id") int wedstrijd_id,@FormParam("speler_id_arr[]") List<Integer> speler_id_arr,
 	@FormParam("team_id") int team_id) {
 		System.out.println("speler_id_arr="+speler_id_arr);
 		Response out = Response.status(Response.Status.CONFLICT).build();
