@@ -15,7 +15,7 @@ $.ajax({
 			
 			$.each(data,function(i, item){
 				console.log(item);
-				$("#Spelers").append('<input type="checkbox" id="id_checkbox'+i+'"class="Speler_Checkbox" name="speler_id" value="'+item.id+'"/>'+item.naam+'<br>')
+				$("#Spelers").append('<input id="Speler_Checkbox'+i+'" class="Speler_Checkbox" type="checkbox" value="'+item.id+'"/>'+item.naam+'<br>')
 		})
 			$("#Spelers").append('<input type="button" id="save_value" name="save_value" value="Save" />')
 				
@@ -70,7 +70,7 @@ function load(){
 //})
 
 $('#save_value').click(function () {
-    var arr = $('.ads_Checkbox:checked').map(function () {
+    var arr = $('.Speler_Checkbox:checked').map(function () {
         return this.value;
     }).get();
     console.log(arr);
