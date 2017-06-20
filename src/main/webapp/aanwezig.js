@@ -52,21 +52,22 @@ function load(){
 //    }
 //});
 
-
-$('#save_value').click(function () {
-	console.log("saving");
-    var arr = $('.Speler_Checkbox:checked').map(function () {
-    	console.log(this.value);
-        return this.value;
-    }).get();
-    console.log(arr);
-    if (arr.length()>9){
-    	console.log("submit");
-    }else {
-        // Display warning here
-    	alert("Er moeten minimaal 9 spelers aanwezig zijn.");
-    }
-});
+$(document).ready(function() {
+	$('#save_value').onclick(function () {
+		console.log("saving");
+	    var arr = $('.Speler_Checkbox:checked').map(function () {
+	    	console.log(this.value);
+	        return this.value;
+	    }).get();
+	    console.log(arr);
+	    if (arr.length()>9){
+	    	console.log("submit");
+	    }else {
+	        // Display warning here
+	    	alert("Er moeten minimaal 9 spelers aanwezig zijn.");
+	    }
+	});
+})
 
 
 
@@ -76,8 +77,8 @@ function SetSpelers(team_id){
 			method: 'POST',
 			data:{"team_id":team_id,"wedstrijd_id":wedstrijd_id,"speler_id_arr":speler_id_arr},
 			beforeSend: function (xhr) {
-			var token = window.sessionStorage.getItem("sessionToken");
-			xhr.setRequestHeader( 'Authorization', 'Bearer ' + token);
+				var token = window.sessionStorage.getItem("sessionToken");
+				xhr.setRequestHeader( 'Authorization', 'Bearer ' + token);
 			},
 			
 			success: function (data) {
@@ -86,12 +87,10 @@ function SetSpelers(team_id){
 				
 				$.each(data,function(i, item){
 					console.log(item);
-					$("#Spelers").append('<input type="checkbox" name="aanwezig" value="'+item.id+'"/>'+item.naam+'<br>')
-			})
-				$("#Spelers").append('<input type="submit">')
+					$("#Spelers").append('<input type="checkbox" name="aanwezig" value="'+item.id+'"/>'+item.naam+'<br>');
+				})
+				$("#Spelers").append('<input type="submit">');
 					
 			}
-		})
-	}	
-
-
+	})
+}
