@@ -41,6 +41,19 @@ public class Resource {
 	}		
 	
 	@POST
+	@Produces("application/json")
+	@Path("/role")
+	public String getRole(@FormParam("username") String username,@FormParam("password") String password) {
+		System.out.println("username="+username+"&password="+password);
+		UserDAO dao = new UserDAO();
+		
+		JsonObjectBuilder job = Json.createObjectBuilder();
+		String role = dao.findRoleForUsernameAndPassword(username, password);
+		job.add("role",role);
+		return job.build().toString();
+	}		
+	
+	@POST
 	@RolesAllowed({"user","admin"})
 	@Produces("application/json")
 	@Path("/wedstrijden")
