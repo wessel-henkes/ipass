@@ -14,6 +14,7 @@ function loadWedstrijden(){
 			console.log(data)
 			/* Handle data */
 			var role =window.sessionStorage.getItem("role");
+			console.log("role="+role);
 			if (role == "admin"){
 			$.each(data,function(i, item){
 				console.log(item);
