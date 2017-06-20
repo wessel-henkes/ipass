@@ -15,7 +15,7 @@ $.ajax({
 			
 			$.each(data,function(i, item){
 				console.log(item);
-				$("#Spelers").append('<input type="checkbox" class="Speler_Checkbox" name="speler_id" value="'+item.id+'"/>'+item.naam+'<br>')
+				$("#Spelers").append('<input type="checkbox" id="id_checkbox'+i+'"class="Speler_Checkbox" name="speler_id" value="'+item.id+'"/>'+item.naam+'<br>')
 		})
 			$("#Spelers").append('<input type="button" id="save_value" name="save_value" value="Save" />')
 				
@@ -52,24 +52,29 @@ function load(){
 //    }
 //});
 
-$(document).ready(function() {
-	$('#save_value').click(function () {
-		console.log("saving");
-	    var arr = $('.Speler_Checkbox:checked').map(function () {
-	    	console.log(this.value);
-	        return this.value;
-	    }).get();
-	    console.log(arr);
-	    if (arr.length()>9){
-	    	console.log("submit");
-	    }else {
-	        // Display warning here
-	    	alert("Er moeten minimaal 9 spelers aanwezig zijn.");
-	    }
-	});
-})
+//$(document).ready(function() {
+//	$('#save_value').click(function () {
+//		console.log("saving");
+//	    var arr = $('.Speler_Checkbox:checked').map(function () {
+//	    	console.log(this.value);
+//	        return this.value;
+//	    }).get();
+//	    console.log(arr);
+//	    if (arr.length()>9){
+//	    	console.log("submit");
+//	    }else {
+//	        // Display warning here
+//	    	alert("Er moeten minimaal 9 spelers aanwezig zijn.");
+//	    }
+//	});
+//})
 
-
+$('#save_value').click(function () {
+    var arr = $('.ads_Checkbox:checked').map(function () {
+        return this.value;
+    }).get();
+    console.log(arr);
+});
 
 function SetSpelers(team_id){
 	$.ajax({
