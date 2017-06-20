@@ -18,7 +18,7 @@ function loadWedstrijden(){
 			
 			$.each(data,function(i, item){
 				console.log(item);
-				$("wedstrijden").append('<div class="col-3 col-m-3 "><div class="card"><div class="container"><h4><b>'+item.team_thuis+' tegen '+item.team_uit+' </b></h4><p>datum: '+item.datum+'</p><p>tijd:'+item.tijd+'</p><button class="button"><span><b>opstelling bekijken</b></span></button><button class="button"><span><b>opstelling invoeren</b></span></button><button class="button"><span><b>opstelling aanpassen</b></span></button></div></div></div>')
+				$("#wedstrijden").append('<div class="col-3 col-m-3 "><div class="card"><div class="container"><h4><b>'+item.team_thuis+' tegen '+item.team_uit+' </b></h4><p>datum: '+item.datum+'</p><p>tijd:'+item.tijd+'</p><button class="button"><span><b>opstelling bekijken</b></span></button><button class="button"><span><b>opstelling invoeren</b></span></button><button class="button"><span><b>opstelling aanpassen</b></span></button></div></div></div>')
 		}
 //		
 //			$.each(data,function(i, item){
