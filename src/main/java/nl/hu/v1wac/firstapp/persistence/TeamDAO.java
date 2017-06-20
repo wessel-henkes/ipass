@@ -32,6 +32,7 @@ public class TeamDAO extends BaseDAO {
 		return r0;	
 	}
 	
+	@SuppressWarnings("unused")
 	private List<Team> selectTeams(String query) {
 		List<Team> results = new ArrayList<Team>();
 		

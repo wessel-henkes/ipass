@@ -23,7 +23,7 @@ $("#post").click(function(event){
 
 })
 
-$('#guest').click(function(){
+$('#guest').click(function(){ //nog weghalen
 	window.location.href = 'les8_practicum1.html';
 });
 

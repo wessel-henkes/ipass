@@ -82,7 +82,7 @@ public class Resource {
 			JsonObjectBuilder job = Json.createObjectBuilder();
 			job.add("id", s.getId());
 			job.add("naam", s.getNaam());
-			job.add("team_id", s.getTeam_id());
+//			job.add("team_id", s.getTeam_id());
 			jab.add(job);
 		}
 		JsonArray array = jab.build();
@@ -149,7 +149,7 @@ public class Resource {
 	@Produces("application/json")
 	@Path("/opstelling/aanwezig")
 	public Response createOpstelling(@FormParam("wedstrijd_id") int wedstrijd_id,@FormParam("speler_id") int speler_id,
-		@FormParam("team_id") int team_id) {
+	@FormParam("team_id") int team_id) {
 		Response out = Response.status(Response.Status.CONFLICT).build();
 		Opstelling newOpstelling= new Opstelling(speler_id,team_id,wedstrijd_id);
 		OpstellingDAO dao = new OpstellingDAO();
