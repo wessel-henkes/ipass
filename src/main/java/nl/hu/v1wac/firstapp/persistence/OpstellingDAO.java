@@ -154,10 +154,15 @@ public List<Opstelling> getAanwezigByWedstrijdByTeam(int wedstrijd_id, int team_
 			stmt.executeUpdate(deletequery);
 			
 			for (int speler_id : speler_id_arr){
-				String query = "INSERT INTO opstelling (speler_id, team_id, wedstrijd_id)  "
-						+ " VALUES ("+speler_id+","+team_id+","+wedstrijd_id+");";
-				System.out.println(query);
-				stmt.executeUpdate(query);
+				String bestaat ="SELECT id FROM opstelling WHERE wedstrijd_id="+wedstrijd_id+" AND team_id="+team_id+" AND speler_id="+speler_id+";";
+				ResultSet dbResultSet = stmt.executeQuery(bestaat);
+				if (dbResultSet.next()){}
+				else {
+					String query = "INSERT INTO opstelling (speler_id, team_id, wedstrijd_id)  "+ " VALUES ("+speler_id+","+team_id+","+wedstrijd_id+");";
+					System.out.println(query);
+					stmt.executeUpdate(query);
+				}
+				
 			}
 			con.close();
 			out = true;
