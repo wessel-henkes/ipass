@@ -140,8 +140,14 @@ public List<Opstelling> getAanwezigByWedstrijdByTeam(int wedstrijd_id, int team_
 		try (Connection con = super.getConnection()) {
 			Statement stmt = con.createStatement();
 			 String id = "";
+			 int a = 1;
 			 for (int i : speler_id_arr){
-				 id = id+ String.valueOf(i)+",";
+				 id = id+ String.valueOf(i);
+				 
+				 if (speler_id_arr.size()> a){
+					 id += ",";
+					 a += 1;	 
+				 }
 			 }
 			String deletequery = "DELETE FROM opstelling WHERE wedstrijd_id="+wedstrijd_id+" AND team_id="+team_id+" AND speler_id NOT IN ("+id+") ;";
 			stmt.executeUpdate(deletequery);
