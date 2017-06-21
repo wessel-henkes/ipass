@@ -56,9 +56,6 @@ function SetSpelers(speler_id_arr){
 	var wedstrijd_id =item.id;
 	if (deel == "aanwezig_thuis"){
 		var team_id = item.team_thuis_id;
-		
-		
-		
 		$.ajax({
 				url: "restservices/app/opstelling/aanwezig",
 				method: 'PUT',
@@ -88,7 +85,7 @@ function SetSpelers(speler_id_arr){
 			
 			success: function (data) {
 				console.log(data);
-				indow.sessionStorage.setItem("WedstrijdStatus","slagvolgorde_thuis")
+				window.sessionStorage.setItem("WedstrijdStatus","slagvolgorde_thuis")
 				window.location.href = 'slagvolgorde.html';
 			}
 			
