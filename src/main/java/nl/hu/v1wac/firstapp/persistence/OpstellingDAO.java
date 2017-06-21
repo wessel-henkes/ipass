@@ -150,6 +150,7 @@ public List<Opstelling> getAanwezigByWedstrijdByTeam(int wedstrijd_id, int team_
 				 }
 			 }
 			String deletequery = "DELETE FROM opstelling WHERE wedstrijd_id="+wedstrijd_id+" AND team_id="+team_id+" AND speler_id NOT IN ("+id+") ;";
+			System.out.println(deletequery);
 			stmt.executeUpdate(deletequery);
 			
 			for (int speler_id : speler_id_arr){

@@ -52,8 +52,9 @@ html {
     padding: 15px;
 }
 
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 1300px) {
  	/* For mobile phones: */
+ 	/* For tablets: */
 	.card{min-width:300px;}
 	.col-m-1 {width: 100%;}
     .col-m-2 {width: 100%;}
@@ -68,25 +69,6 @@ html {
     .col-m-11 {width: 100%;}
     .col-m-12 {width: 100%;}
 }
-
-
-@media only screen and (min-width: 700px) {
-    /* For tablets: */
-	.card{min-width:300px;}
-	.col-m-1 {width: 50%;}
-    .col-m-2 {width: 50%;}
-    .col-m-3 {width: 50%;}
-    .col-m-4 {width: 50%;}
-    .col-m-5 {width: 50%;}
-    .col-m-6 {width: 50%;}
-    .col-m-7 {width: 50%;}
-    .col-m-8 {width: 50%;}
-    .col-m-9 {width: 50%;}
-    .col-m-10 {width: 50%;}
-    .col-m-11 {width: 50%;}
-    .col-m-12 {width: 50%;}
-}
-
 
 @media only screen and (min-width: 1300px) {
     /* For desktop: */
