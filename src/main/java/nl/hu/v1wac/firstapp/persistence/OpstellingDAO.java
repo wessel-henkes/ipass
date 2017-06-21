@@ -139,6 +139,13 @@ public List<Opstelling> getAanwezigByWedstrijdByTeam(int wedstrijd_id, int team_
 		System.out.println(speler_id_arr);
 		try (Connection con = super.getConnection()) {
 			Statement stmt = con.createStatement();
+			 String id = "";
+			 for (int i : speler_id_arr){
+				 id = id+ String.valueOf(i)+",";
+			 }
+			String deletequery = "DELETE FROM opstelling WHERE wedstrijd_id="+wedstrijd_id+" AND team_id="+team_id+" AND speler_id NOT IN ("+id+") ;";
+			stmt.executeUpdate(deletequery);
+			
 			for (int speler_id : speler_id_arr){
 				String query = "INSERT INTO opstelling (speler_id, team_id, wedstrijd_id)  "
 						+ " VALUES ("+speler_id+","+team_id+","+wedstrijd_id+");";
@@ -155,13 +162,20 @@ public List<Opstelling> getAanwezigByWedstrijdByTeam(int wedstrijd_id, int team_
 	}
 	
 	
-	public boolean setSlagvolgorde(Opstelling o){
-		String query = "UPDATE opstelling SET slagvolgorde="+o.getSlagvolgorde()+" WHERE  wedstrijd_id="+o.getWedstrijd_id()+"AND team_id="+o.getTeam_id()+"AND speler_id="+o.getSpeler_id()+";";
-		System.out.println(query);
+	public boolean setSlagvolgorde(int wedstrijd_id,List<Integer> speler_id_arr,int team_id){
+		
 		boolean out = false;
 		try (Connection con = super.getConnection()) {
 			Statement stmt = con.createStatement();
-			stmt.executeUpdate(query);
+			int index = 1;
+			for (int speler_id : speler_id_arr){
+				
+				Opstelling o = new Opstelling(index,speler_id,team_id,wedstrijd_id);
+				String query = "UPDATE opstelling SET slagvolgorde="+o.getSlagvolgorde()+" WHERE  wedstrijd_id="+o.getWedstrijd_id()+"AND team_id="+o.getTeam_id()+"AND speler_id="+o.getSpeler_id()+";";
+				System.out.println(query);
+				stmt.executeUpdate(query);
+				index++;
+			}			
 			con.close();
 			out = true;
 		} catch (SQLException sqle) {

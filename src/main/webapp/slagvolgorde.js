@@ -61,22 +61,14 @@ function getSpelers(team_id,wedstrijd_id){
 
 
 		$('#save_value').click(function () {
+			var speler_id_arr = [];
 			$('#spelers li').each(function(){
-				console.log(this.value +", "+this.getAttribute("data-speler_id"));
+				var a =this.getAttribute("data-speler_id");
+//				console.log(this.value +", "+a);
+				speler_id_arr.push(a);
 			});
-//			// select the list items
-//			var lists = ol.getElementsByTagName('li');
-//			// now loop through the items and set a custom property 'index'
-//			var l = lists.length; // total items
-//
-//			for (var i=1;i<=l;i++){
-//			  console.log(list[i].value, list[i].data );
-//			}
-//		    console.log(arr);
-//		    
-//			console.log("submit");
-//			SetSpelers(arr);
-//		    
+			console.log(speler_id_arr);
+			SetSpelers(speler_id_arr);
 		});
 
 		function SetSpelers(speler_id_arr){

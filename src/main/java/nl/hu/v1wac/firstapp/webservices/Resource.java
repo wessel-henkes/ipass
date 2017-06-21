@@ -183,16 +183,19 @@ public class Resource {
 	@Produces("application/json")
 	@Path("/opstelling/slagvolgorde")
 	public Response setSlagvolgorde(@FormParam("wedstrijd_id") int wedstrijd_id,
-		@FormParam("speler_id") int speler,@FormParam("team_id") int team_id,
-		@FormParam("slagvolgorde") int slagvolgorde) {
+		@FormParam("speler_id_arr[]") List<Integer> speler_id_arr,@FormParam("team_id") int team_id) {
 			Response out = Response.status(Response.Status.CONFLICT).build();
 			System.out.println("setting slagvolgorde");	
 			OpstellingDAO dao = new OpstellingDAO();	
-			Opstelling o = new Opstelling(slagvolgorde,speler,team_id,wedstrijd_id);
-			if (dao.setSlagvolgorde(o)==true){
+
+		
+			if (dao.setSlagvolgorde(wedstrijd_id,speler_id_arr,team_id) == true){
 				out = Response.ok().build();
-			}
-			//System.out.println("updated");
+			}else{
+				out = Response.status(Response.Status.CONFLICT).build();
+			};
+		
+			System.out.println("updated");
 			
 			return out;
 	}
