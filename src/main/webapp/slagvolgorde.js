@@ -2,7 +2,7 @@ $('.sortable').sortable().bind('sortupdate', function() {
     //Triggered when the user stopped sorting and the DOM position has changed.
 	var i = 1;
 	$('#spelers li').each(function(){
-		this.value(i);
+		this.setAttribute("value",i);
 		i++;
 		
 	})
