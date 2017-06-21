@@ -28,7 +28,7 @@ function getSpelers(team_id,wedstrijd_id){
 					
 					$.each(data,function(i, item){
 						console.log(item);
-						$("#spelers").append('<li draggable="true"value="'+item.speler_id+'">'+item.speler_naam+'</li>');
+						$("#spelers").append('<li value="'+i+'"draggable="true" data-speler_id="'+item.speler_id+'">'+item.speler_naam+'</li>');
 					})
 				}
 			})
@@ -50,17 +50,22 @@ function getSpelers(team_id,wedstrijd_id){
 
 
 		$('#save_value').click(function () {
-		    var arr = $('.Speler_Checkbox:checked').map(function () {
-		        return this.value;
-		    }).get();
-		    console.log(arr);
-		    if (arr.length>=9){
-			console.log("submit");
-			SetSpelers(arr);
-		    }else {
-		    	// Display warning here
-		    	alert("Er moeten minimaal 9 spelers aanwezig zijn.");
-		    }
+			$('#spelers li').each(function(){
+				console.log(this.value +", "+this.getAttribute("data-speler_id"));
+			});
+//			// select the list items
+//			var lists = ol.getElementsByTagName('li');
+//			// now loop through the items and set a custom property 'index'
+//			var l = lists.length; // total items
+//
+//			for (var i=1;i<=l;i++){
+//			  console.log(list[i].value, list[i].data );
+//			}
+//		    console.log(arr);
+//		    
+//			console.log("submit");
+//			SetSpelers(arr);
+//		    
 		});
 
 		function SetSpelers(speler_id_arr){
