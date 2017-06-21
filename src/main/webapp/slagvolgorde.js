@@ -11,8 +11,8 @@
 			});
 		});
 		
-		window.onload = load();
-		function getSpelers(team_id,wedstrijd_id){
+window.onload = load();
+function getSpelers(team_id,wedstrijd_id){
 		$.ajax({
 				url: "restservices/app/opstelling",
 				method: 'POST',
@@ -28,21 +28,21 @@
 					
 					$.each(data,function(i, item){
 						console.log(item);
-						$("#Spelers").append('<li value="'+item.id+'">'+item.naam+'</li>');
+						$("#spelers").append('<li draggable="true"value="'+item.id+'">'+item.naam+'</li>');
 					})
 				}
 			})
-		}	
+}	
 		function load(){
 			var item = JSON.parse(window.sessionStorage.getItem("WedstrijdData"));
 			console.log(item);
 			var deel = window.sessionStorage.getItem("WedstrijdStatus");
 			console.log(deel);
 			if (deel == "slagvolgorde_thuis"){
-				$(".header").append('<h1>Aanwezigheid '+item.team_thuis+'</h1>');
+				$(".header").append('<h1>Slagvolgorde '+item.team_thuis+'</h1>');
 				getSpelers(item.team_thuis_id,item.id);
 			} else if (deel == "slagvolgorde_uit"){
-				$(".header").append('<h1>Aanwezigheid '+item.team_uit+'</h1>');
+				$(".header").append('<h1>Slagvolgorde '+item.team_uit+'</h1>');
 				getSpelers(item.team_uit_id);
 			}
 		}
