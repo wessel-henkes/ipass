@@ -3,6 +3,7 @@
 * {
     box-sizing: border-box;
 }
+
 .row::after {
     content: "";
     clear: both;
@@ -13,19 +14,23 @@
     padding: 15px;
     border: 1px solid red;
 }
+
 html {
     font-family: "Lucida Sans", sans-serif;
 }
+
 .header {
     background-color: rgba(13, 114, 203, 0.79);
     color: #ffffff;
     padding: 15px;
 }
+
 .menu ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
 }
+
 .menu li {
     padding: 8px;
     margin-bottom: 7px;
@@ -33,9 +38,11 @@ html {
     color: #ffffff;
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 }
+
 .menu li:hover {
     background-color: #0099cc;
 }
+
 .aside {
     background-color: #33b5e5;
     padding: 15px;
@@ -44,6 +51,7 @@ html {
     font-size: 14px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 }
+
 .footer {
     background-color: #0099cc;
     color: #ffffff;
@@ -86,7 +94,6 @@ html {
     .col-12 {width: 100%;}
     .card{min-width:300px;}
 }
-
 
 .card{
 	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
@@ -146,38 +153,45 @@ html {
 	width: 100px;
 	height:20px;
 }
-		.sortable {
-			width: 310px;
-			-webkit-user-select: none;
-			-moz-user-select: none;
-			-ms-user-select: none;
-			user-select: none;
-		}
 
-		.sortable li {
-			list-style: none;
-			border: 1px solid #CCC;
-			background: #F6F6F6;
-			color: #1C94C4;
-			margin: 5px;
-			padding: 5px;
-			height: 22px;
-		}
-		.handle {
-			cursor: move;
-		}
-		.sortable.connected {
-			width: 200px;
-			min-height: 100px;
-			float: left;
-		}
-		li.disabled {
-			opacity: 0.5;
-		}
-		li.highlight {
-			background: #FEE25F;
-		}
-		li.sortable-placeholder {
-			border: 1px dashed #CCC;
-			background: none;
-		}
+.sortable {
+	width: 310px;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+.sortable li {
+	list-style: none;
+	border: 1px solid #CCC;
+	background: #F6F6F6;
+	color: #1C94C4;
+	margin: 5px;
+	padding: 5px;
+	height: 22px;
+}
+
+.handle {
+	cursor: move;
+}
+
+.sortable.connected {
+	width: 200px;
+	min-height: 100px;
+	float: left;
+}
+
+li.disabled {
+	opacity: 0.5;
+}
+
+li.highlight {
+	background: #FEE25F;
+}
+
+li.sortable-placeholder {
+	border: 1px dashed #CCC;
+	background: none;
+}
+
