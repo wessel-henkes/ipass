@@ -47,7 +47,7 @@ public class SpelerDAO extends BaseDAO {
 			
 			con.close();
 		} catch (SQLException sqle) {
-			sqle.printStackT
+			sqle.printStackTrace();
 		}
 		return result;	
 	}
