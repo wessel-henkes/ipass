@@ -1,15 +1,4 @@
-		$(function() { //voor sortable list
-			$('.sortable').sortable();
-			$('.handles').sortable({
-				handle: 'span'
-			});
-			$('.connected').sortable({
-				connectWith: '.connected'
-			});
-			$('.exclude').sortable({
-				items: ':not(.disabled)'
-			});
-		});
+
 		
 window.onload = load();
 function getSpelers(team_id,wedstrijd_id){
@@ -27,9 +16,23 @@ function getSpelers(team_id,wedstrijd_id){
 					/* Handle data */
 					
 					$.each(data,function(i, item){
+						i = i+1;
 						console.log(item);
 						$("#spelers").append('<li value="'+i+'"draggable="true" data-speler_id="'+item.speler_id+'">'+item.speler_naam+'</li>');
 					})
+				
+					$(function() { //voor sortable list
+						$('.sortable').sortable();
+						$('.handles').sortable({
+							handle: 'span'
+						});
+						$('.connected').sortable({
+							connectWith: '.connected'
+						});
+						$('.exclude').sortable({
+							items: ':not(.disabled)'
+						});
+					});
 				}
 			})
 }	
