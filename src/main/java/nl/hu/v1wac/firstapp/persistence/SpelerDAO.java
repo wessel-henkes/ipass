@@ -38,7 +38,7 @@ public class SpelerDAO extends BaseDAO {
 
 	public String getSpelerNaam(int speler_id) {
 		String result = null;
-		String query ="SELECT CONCAT(CONCAT(voornaam,' '),achternaam) AS naam FROM spelers WHERE speler_id="+speler_id+";";
+		String query ="SELECT CONCAT(CONCAT(voornaam,' '),achternaam) AS naam FROM spelers WHERE id="+speler_id+";";
 		try (Connection con = super.getConnection()) {
 			Statement stmt = con.createStatement();
 			ResultSet dbResultSet = stmt.executeQuery(query);
