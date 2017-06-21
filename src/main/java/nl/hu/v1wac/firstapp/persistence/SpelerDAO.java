@@ -42,9 +42,11 @@ public class SpelerDAO extends BaseDAO {
 		try (Connection con = super.getConnection()) {
 			Statement stmt = con.createStatement();
 			ResultSet dbResultSet = stmt.executeQuery(query);
+			while (dbResultSet.next()) {
 			String r1 = dbResultSet.getString("naam");
 			result = r1;
-			
+			break;
+			}
 			con.close();
 		} catch (SQLException sqle) {
 			sqle.printStackTrace();
