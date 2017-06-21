@@ -56,7 +56,7 @@ function SetSpelers(speler_id_arr){
 	var wedstrijd_id =item.id;
 	if (deel == "aanwezig_thuis"){
 		var team_id = item.team_thuis_id;
-		window.sessionStorage.setItem("WedstrijdStatus","aanwezig_uit")
+		
 		
 		
 		$.ajax({
@@ -70,6 +70,7 @@ function SetSpelers(speler_id_arr){
 				
 				success: function (data) {
 					console.log(data);
+					window.sessionStorage.setItem("WedstrijdStatus","aanwezig_uit")
 					window.location.href = 'aanwezig.html';
 				}
 		})
@@ -87,6 +88,7 @@ function SetSpelers(speler_id_arr){
 			
 			success: function (data) {
 				console.log(data);
+				indow.sessionStorage.setItem("WedstrijdStatus","slagvolgorde_thuis")
 				window.location.href = 'slagvolgorde.html';
 			}
 			

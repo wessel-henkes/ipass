@@ -105,7 +105,7 @@ public class Resource {
 		return array.toString();
 	}
 	@POST
-	@RolesAllowed({"user","admin"})
+	@RolesAllowed("admin")
 	@Produces("application/json")
 	@Path("/opstelling")
 	public String getAanwezigByTeam(@FormParam("wedstrijd_id") int wedstrijd_id, @FormParam("team_id") int team_id) {
@@ -123,7 +123,7 @@ public class Resource {
 	}
 	
 	@POST
-	@RolesAllowed({"user","admin"})
+	@RolesAllowed("admin")
 	@Produces("application/json")
 	@Path("/opstelling/slagvolgorde")
 	public String getSlagvolgordeByTeam(@FormParam("wedstrijd_id") int wedstrijd_id, @FormParam("team_id") int team_id) {

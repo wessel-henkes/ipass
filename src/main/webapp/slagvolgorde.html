@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="slagvolgorde.css">
+<title>slagvolgorde invoeren</title>
+</head>
+
+<body>
+  <!-- Latest Sortable -->
+
+
+ <div class="header"></div>
+<div id="info" class="row">
+</div>
+<div class="row">
+	<div class="col-12 col-m-12">
+		<div class="card" >
+			<div class="container" >
+				  <h2>De Spelers</h2>
+				  <p>Sleep de spelers naar de juiste positie in de slagvolgorde.</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="row" >
+	<div class="col-12 col-m-12" >
+		<div class="card">
+		
+			<div class="container" >
+				
+				<section>
+					<h2>Sortable List</h2>
+					<ol class="sortable list" id = spelers>
+						<li>Item 1</li>
+						<li>Item 2</li>
+						<li>Item 3</li>
+						<li>Item 4</li>
+						<li>Item 5</li>
+						<li>Item 6</li>
+					</ol>
+				</section>
+			
+				<input type="button" class="button" id="save_value" name="save_value" value="Save" />
+			</div>
+	
+			
+		</div>
+	</div>
+</div>
+
+	<div>
+		<script src="https://code.jquery.com/jquery-3.2.0.min.js"></script>
+		<script src='jquery-sortable.js'></script>
+    	<script src="slagvolgorde.js"></script>
+	</div>
+</body>
+</html>
