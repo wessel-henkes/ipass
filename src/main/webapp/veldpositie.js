@@ -40,6 +40,9 @@ function getSpelers(team_id,wedstrijd_id){
 						$('.exclude').sortable({
 							items: ':not(.disabled)'
 						});
+						$('#sortable1, #sortable2').sortable({
+						    connectWith: '.connected'
+						});
 					});
 				}
 			})
@@ -49,11 +52,11 @@ function getSpelers(team_id,wedstrijd_id){
 			console.log(item);
 			var deel = window.sessionStorage.getItem("WedstrijdStatus");
 			console.log(deel);
-			if (deel == "slagvolgorde_thuis"){
-				$(".header").append('<h1>Slagvolgorde '+item.team_thuis+'</h1>');
+			if (deel == "veldpositie_thuis"){
+				$(".header").append('<h1>Veldpositie '+item.team_thuis+'</h1>');
 				getSpelers(item.team_thuis_id,item.id);
-			} else if (deel == "slagvolgorde_uit"){
-				$(".header").append('<h1>Slagvolgorde '+item.team_uit+'</h1>');
+			} else if (deel == "veldpositie_uit"){
+				$(".header").append('<h1>veldpositie '+item.team_uit+'</h1>');
 				getSpelers(item.team_uit_id);
 			}
 		}
@@ -75,12 +78,12 @@ function getSpelers(team_id,wedstrijd_id){
 			var item = JSON.parse(window.sessionStorage.getItem("WedstrijdData"));
 			var deel = window.sessionStorage.getItem("WedstrijdStatus");
 			var wedstrijd_id =item.id;
-			if (deel == "slagvolgorde_thuis"){
+			if (deel == "veldpositie_thuis"){
 				var team_id = item.team_thuis_id;
 				
 				
 				$.ajax({
-						url: "restservices/app/opstelling/slagvolgorde",
+						url: "restservices/app/opstelling/veldpositie",
 						method: 'PUT',
 						data:{"team_id":team_id,"wedstrijd_id":wedstrijd_id,"speler_id_arr":speler_id_arr},
 						beforeSend: function (xhr) {
@@ -90,15 +93,15 @@ function getSpelers(team_id,wedstrijd_id){
 						
 						success: function (data) {
 							console.log(data);
-							window.sessionStorage.setItem("WedstrijdStatus","slagvolgorde_uit");
+							window.sessionStorage.setItem("WedstrijdStatus","veldpositie_uit");
 							window.location.href = 'aanwezig.html';
 						}
 				})
 				
-			}else if (deel == "slagvolgorde_uit"){
+			}else if (deel == "veldpositie_uit"){
 				var team_id = item.team_uit_id;
 				$.ajax({
-					url: "restservices/app/opstelling/slagvolgorde",
+					url: "restservices/app/opstelling/veldpositie",
 					method: 'PUT',
 					data:{"team_id":team_id,"wedstrijd_id":wedstrijd_id,"speler_id_arr":speler_id_arr},
 					beforeSend: function (xhr) {
@@ -109,7 +112,7 @@ function getSpelers(team_id,wedstrijd_id){
 					success: function (data) {
 						console.log(data);
 						window.sessionStorage.setItem("WedstrijdStatus","veldpositie_thuis");
-						window.location.href = 'veldpositie.html';
+						window.location.href = 'slagvolgorde.html';
 					}
 					
 			})

@@ -30,7 +30,7 @@ public class Opstelling {
 		this.team_id = team_id;
 		this.wedstrijd_id = wedstrijd_id;
 	}
-	public Opstelling(int slagvolgorde, int speler_id, int team_id, int wedstrijd_id ){ //getSlagvolgordeByWedstrijdByTeam
+	public Opstelling(int slagvolgorde, int speler_id, int team_id, int wedstrijd_id ){ //getSlagvolgordeByWedstrijdByTeam, setSlagvolgorde()
 		this.slagvolgorde = slagvolgorde;
 		this.speler_id = speler_id;
 		this.team_id = team_id;

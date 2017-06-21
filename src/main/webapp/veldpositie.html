@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="veldpositie.css">
+<title>Veldpositie invoeren</title>
+</head>
+
+<body>
+  <!-- Latest Sortable -->
+
+
+ <div class="header"></div>
+<div id="info" class="row">
+</div>
+<div class="row">
+	<div class="col-12 col-m-12">
+		<div class="card" >
+			<div class="container" >
+				  <h2>De Spelers</h2>
+				  <p>Sleep de spelers naar de juiste positie in de slagvolgorde.</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="row" >
+	<div class="col-9 col-m-2" >
+		<div class="card">
+		
+			<div class="container" >
+				
+				<section>
+					<h2>Veldposities</h2>
+					<ol id="index"class="index"Style="list-style: none;">
+						<li>1</li>
+						<li>2</li>
+						<li>3</li>
+						<li>4</li>
+						<li>5</li>
+						<li>6</li>
+						<li>7</li>
+						<li>8</li>
+						<li>9</li>
+						<li>R</li>
+					</ol>
+					<ol class="sortable" id="spelers">
+		
+					</ol>
+				</section>
+			
+				<input type="button" class="button" id="save_value" name="save_value" value="Save" />
+			</div>
+	
+			
+		</div>
+	</div>
+
+<div class="col-3 col-m-9">
+  <div class="card" style="min-width:50px; background-color:rgba(13, 114, 203, 0.79); color:white">
+  <div class="container" >
+    <h2>legenda</h2>
+    <p>De positie en hun nummer</p>
+    <ol id="index2"class="index2"Style="list-style: none;">
+	    <li>1 Pitcher</li>
+	    <li>2 Catcher</li>
+		<li>3 Eerste honk</li>
+		<li>4 Tweede honk</li>
+		<li>5 Derde honk</li>
+		<li>6 Korte stop</li>
+		<li>7 Linksveld</li>
+		<li>8 Middenveld</li>
+		<li>9 Rechtsveld</li>
+		<li>R Wissels</li>
+	</ol>
+  </div></div>
+</div>
+</div>
+	<div>
+		<script src="https://code.jquery.com/jquery-3.2.0.min.js"></script>
+		<script src='jquery-sortable.js'></script>
+    	<script src="veldpositie.js"></script>
+	</div>
+</body>
+</html>
