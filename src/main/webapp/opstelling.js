@@ -106,7 +106,7 @@ function load(){
 	
 	var role =window.sessionStorage.getItem("role");
 	console.log("role="+role);
-	if (role != "admin" && role !="user"){window.location.href = 'home.html';}
+//	if (role != "admin" && role !="user"){window.location.href = 'home.html';}
 	
 	var item = JSON.parse(window.sessionStorage.getItem("WedstrijdData"));
 	console.log(item);
