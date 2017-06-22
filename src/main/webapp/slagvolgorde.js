@@ -4,9 +4,9 @@ $('.sortable').sortable().bind('sortupdate', function() {
 	$('#spelers li').each(function(){
 		this.setAttribute("value",i);
 		i++;
-		
+
 	})
-});		
+});
 
 window.onload = load();
 function getSpelers(team_id,wedstrijd_id){
@@ -18,17 +18,17 @@ function getSpelers(team_id,wedstrijd_id){
 				var token = window.sessionStorage.getItem("sessionToken");
 				xhr.setRequestHeader( 'Authorization', 'Bearer ' + token);
 				},
-				
+
 				success: function (data) {
 					console.log(data);
 					/* Handle data */
-					
+
 					$.each(data,function(i, item){
 						i = i+1;
 						console.log(item);
 						$("#spelers").append('<li value="'+i+'"draggable="true" data-speler_id="'+item.speler_id+'">'+item.speler_naam+'</li>');
 					})
-				
+
 					$(function() { //voor sortable list
 						$('.sortable').sortable();
 						$('.handles').sortable({
@@ -43,7 +43,7 @@ function getSpelers(team_id,wedstrijd_id){
 					});
 				}
 			})
-}	
+}
 		function load(){
 			var item = JSON.parse(window.sessionStorage.getItem("WedstrijdData"));
 			console.log(item);
@@ -77,8 +77,8 @@ function getSpelers(team_id,wedstrijd_id){
 			var wedstrijd_id =item.id;
 			if (deel == "slagvolgorde_thuis"){
 				var team_id = item.team_thuis_id;
-				
-				
+
+
 				$.ajax({
 						url: "restservices/app/opstelling/slagvolgorde",
 						method: 'PUT',
@@ -87,14 +87,14 @@ function getSpelers(team_id,wedstrijd_id){
 							var token = window.sessionStorage.getItem("sessionToken");
 							xhr.setRequestHeader( 'Authorization', 'Bearer ' + token);
 						},
-						
+
 						success: function (data) {
 							console.log(data);
 							window.sessionStorage.setItem("WedstrijdStatus","slagvolgorde_uit");
-							window.location.href = 'aanwezig.html';
+							window.location.href = 'slagvolgorde.html';
 						}
 				})
-				
+
 			}else if (deel == "slagvolgorde_uit"){
 				var team_id = item.team_uit_id;
 				$.ajax({
@@ -105,14 +105,14 @@ function getSpelers(team_id,wedstrijd_id){
 						var token = window.sessionStorage.getItem("sessionToken");
 						xhr.setRequestHeader( 'Authorization', 'Bearer ' + token);
 					},
-					
+
 					success: function (data) {
 						console.log(data);
 						window.sessionStorage.setItem("WedstrijdStatus","veldpositie_thuis");
 						window.location.href = 'veldpositie.html';
 					}
-					
+
 			})
 			}
-			
+
 		}
