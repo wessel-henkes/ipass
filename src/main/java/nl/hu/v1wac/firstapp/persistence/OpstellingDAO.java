@@ -128,7 +128,7 @@ public class OpstellingDAO extends BaseDAO {
 			for (int speler_id : speler_id_arr){
 				
 				Opstelling o = new Opstelling(index,speler_id,team_id,wedstrijd_id);
-				String query = "UPDATE opstelling SET slagvolgorde="+o.getSlagvolgorde()+" WHERE  wedstrijd_id="+o.getWedstrijd_id()+"AND team_id="+o.getTeam_id()+"AND speler_id="+o.getSpeler_id()+";";
+				String query = "UPDATE opstelling SET slagvolgorde="+o.getSlagvolgorde()+" WHERE  wedstrijd_id="+o.getWedstrijd_id()+" AND team_id="+o.getTeam_id()+" AND speler_id="+o.getSpeler_id()+";";
 				System.out.println(query);
 				stmt.executeUpdate(query);
 				index++;
@@ -150,7 +150,7 @@ public class OpstellingDAO extends BaseDAO {
 			for (int speler_id : speler_id_arr){
 				
 				Opstelling o = new Opstelling(index,speler_id,team_id,wedstrijd_id);
-				String query = "UPDATE opstelling SET veldpositie="+o.getSlagvolgorde()+" WHERE  wedstrijd_id="+o.getWedstrijd_id()+"AND team_id="+o.getTeam_id()+"AND speler_id="+o.getSpeler_id()+";";
+				String query = "UPDATE opstelling SET veldpositie="+o.getSlagvolgorde()+" WHERE  wedstrijd_id="+o.getWedstrijd_id()+" AND team_id="+o.getTeam_id()+" AND speler_id="+o.getSpeler_id()+";";
 				System.out.println(query);
 				stmt.executeUpdate(query);
 				index++;
