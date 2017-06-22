@@ -27,6 +27,9 @@ function getSpelers(team_id,wedstrijd_id){
 						i = i+1;
 						console.log(item);
 						$("#spelers").append('<li value="'+i+'"draggable="true" data-speler_id="'+item.speler_id+'">'+item.speler_naam+'</li>');
+            if ( i => 8){
+              $("#reserve").append<li>R</li>
+            }
 					})
 
 					$(function() { //voor sortable list
@@ -57,7 +60,7 @@ function getSpelers(team_id,wedstrijd_id){
 				getSpelers(item.team_thuis_id,item.id);
 			} else if (deel == "veldpositie_uit"){
 				$(".header").append('<h1>veldpositie '+item.team_uit+'</h1>');
-				getSpelers(item.team_uit_id);
+				getSpelers(item.team_uit_id,item.id);
 			}
 		}
 
