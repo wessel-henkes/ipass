@@ -159,3 +159,38 @@ html {
   right: 0;
 }
 
+		.spelers {
+			width: 255px;
+			-webkit-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			user-select: none;
+			float:left;
+			margin-left: -44px;
+		}
+
+		.spelers li #veldpositie{
+			list-style: none;
+			border: 1px solid rgba(13, 114, 203, 0.79);;
+
+			color: rgba(13, 114, 203, 0.79);;
+			margin: 5px;
+			padding: 5px;
+			border-radius:5px;
+			
+		}
+		
+		.index li{
+			list-style: none;
+			border: 1px solid rgba(13, 114, 203, 0.79);;
+
+			color: rgba(13, 114, 203, 0.79);;
+			margin: 5px;
+			padding: 5px;
+			border-radius:5px;
+			width:23px;
+		}
+#index {
+    margin-left: -45px;
+    float:left;
+}

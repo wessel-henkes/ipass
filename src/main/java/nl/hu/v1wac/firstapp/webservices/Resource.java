@@ -145,13 +145,13 @@ public class Resource {
 	@RolesAllowed({"user","admin"})
 	@Produces("application/json")
 	@Path("/opstelling/veldpositie")
-	public String getVeldpositiesByTeam(@FormParam("wedstrijd_id") int wedstrijd_id, @FormParam("team_id") int team_id) {
+	public String getVeldpositieByTeam(@FormParam("wedstrijd_id") int wedstrijd_id, @FormParam("team_id") int team_id) {
 		OpstellingDAO dao = new OpstellingDAO();
 		SpelerDAO sdao = new SpelerDAO();
 		JsonArrayBuilder jab = Json.createArrayBuilder();
 		for (Opstelling o : dao.getVeldpositieByWedstrijdByTeam(wedstrijd_id, team_id)) {
 			JsonObjectBuilder job = Json.createObjectBuilder();
-			job.add("veldpositie", o.getVeldpositie());
+			job.add("slagvolgorde", o.getVeldpositie());
 			job.add("speler_id", o.getSpeler_id());
 			job.add("speler_naam", sdao.getSpelerNaam(o.getSpeler_id()));
 			jab.add(job);
@@ -187,8 +187,6 @@ public class Resource {
 			Response out = Response.status(Response.Status.CONFLICT).build();
 			System.out.println("setting slagvolgorde");	
 			OpstellingDAO dao = new OpstellingDAO();	
-
-		
 			if (dao.setSlagvolgorde(wedstrijd_id,speler_id_arr,team_id) == true){
 				out = Response.ok().build();
 			}else{
@@ -196,7 +194,6 @@ public class Resource {
 			};
 		
 			System.out.println("updated");
-			
 			return out;
 	}
 	
@@ -204,20 +201,20 @@ public class Resource {
 	@RolesAllowed("admin")
 	@Path("/opstelling/veldpositie")
 	@Produces("application/json")
-	public Response setVeldposities(@FormParam("wedstrijd_id") int wedstrijd_id,
-		@FormParam("speler_id") int speler,@FormParam("team_id") int team_id,
-		@FormParam("veldpositie") String veldpositie) {
-			Response out = Response.status(Response.Status.CONFLICT).build();
-			System.out.println("setting slagvolgorde");	
-			OpstellingDAO dao = new OpstellingDAO();	
-			Opstelling o = new Opstelling(veldpositie,speler,team_id,wedstrijd_id);
-			if (dao.setVeldpositie(o)==true){
-				out = Response.ok().build();
-			}
-			//System.out.println("updated");
+	public Response setVeldpositie(@FormParam("wedstrijd_id") int wedstrijd_id,
+			@FormParam("speler_id_arr[]") List<Integer> speler_id_arr,@FormParam("team_id") int team_id) {
+				Response out = Response.status(Response.Status.CONFLICT).build();
+				System.out.println("setting Veldpositie");	
+				OpstellingDAO dao = new OpstellingDAO();	
+				if (dao.setSlagvolgorde(wedstrijd_id,speler_id_arr,team_id) == true){
+					out = Response.ok().build();
+				}else{
+					out = Response.status(Response.Status.CONFLICT).build();
+				};
 			
-			return out;
-	}
+				System.out.println("updated");
+				return out;
+		}
 
 	@DELETE
 	@RolesAllowed("admin")

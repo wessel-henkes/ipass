@@ -1,6 +1,8 @@
 window.onload = loadWedstrijden();
 
 function loadWedstrijden(){
+	var role =window.sessionStorage.getItem("role");
+	if (role != "admin" && role !="user"){ window.location.href = 'index.html'; }
 	$.ajax({
 		url: "restservices/app/wedstrijden",
 		method: 'POST',
@@ -37,13 +39,13 @@ function loadWedstrijden(){
 function opstellingInvoeren(i){
 	window.sessionStorage.setItem("WedstrijdData", window.sessionStorage.getItem("WedstrijdData"+i));
 	window.sessionStorage.setItem("WedstrijdStatus", "aanwezig_thuis");
-	window.location.href = 'opstelling.html';
+	window.location.href = 'aanwezig.html';
 }
 
 function opstellingBekijken(i){
 	window.sessionStorage.setItem("WedstrijdData", window.sessionStorage.getItem("WedstrijdData"+i));
 	window.sessionStorage.setItem("WedstrijdStatus", "aanwezig_thuis");
-	window.location.href = 'aanwezig.html';
+	window.location.href = 'opstelling.html';
 }
 
 function opstellingVerwijderen(wedstrijd_id){

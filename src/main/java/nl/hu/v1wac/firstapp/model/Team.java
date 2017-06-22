@@ -15,9 +15,7 @@ public class Team {
 		this.naam = naam;
 	}
 
-	public Team() {
-		// TODO Auto-generated constructor stub
-	}
+	public Team() {}
 
 	public String getNaam() {
 		return naam;

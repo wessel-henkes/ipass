@@ -1,14 +1,14 @@
 package nl.hu.v1wac.firstapp.model;
 
 public class Opstelling {
-	private String veldpositie;
+	private int veldpositie;
 	private int slagvolgorde;
 	private int speler_id;
 	private int team_id;
 	private int wedstrijd_id;
 	private int id;
 	
-	public Opstelling(String veldpositie, int slagvolgorde, int speler_id, int team_id, int wedstrijd_id, int id){
+	public Opstelling(int veldpositie, int slagvolgorde, int speler_id, int team_id, int wedstrijd_id, int id){
 		this.veldpositie = veldpositie;
 		this.slagvolgorde = slagvolgorde;
 		this.speler_id = speler_id;
@@ -17,7 +17,7 @@ public class Opstelling {
 		this.id = id;
 	}
 	
-	public Opstelling(String veldpositie, int slagvolgorde, int speler_id, int team_id, int wedstrijd_id){
+	public Opstelling(int veldpositie, int slagvolgorde, int speler_id, int team_id, int wedstrijd_id){
 		this.veldpositie = veldpositie;
 		this.slagvolgorde = slagvolgorde;
 		this.speler_id = speler_id;
@@ -30,24 +30,17 @@ public class Opstelling {
 		this.team_id = team_id;
 		this.wedstrijd_id = wedstrijd_id;
 	}
-	public Opstelling(int slagvolgorde, int speler_id, int team_id, int wedstrijd_id ){ //getSlagvolgordeByWedstrijdByTeam, setSlagvolgorde()
+	public Opstelling(int slagvolgorde, int speler_id, int team_id, int wedstrijd_id ){ //getSlagvolgordeByWedstrijdByTeam, setSlagvolgorde(), setVeldpositie
 		this.slagvolgorde = slagvolgorde;
 		this.speler_id = speler_id;
 		this.team_id = team_id;
 		this.wedstrijd_id = wedstrijd_id;
 	}
 
-	public Opstelling(String veldpositie, int speler_id, int team_id, int wedstrijd_id ){ //setVeldpositie
-		this.veldpositie = veldpositie;
-		this.speler_id = speler_id;
-		this.team_id = team_id;
-		this.wedstrijd_id = wedstrijd_id;
-	}
-
-	public String getVeldpositie() {
+	public int getVeldpositie() {
 		return veldpositie;
 	}
-	public void setVeldpositie(String veldpositie) {
+	public void setVeldpositie(int veldpositie) {
 		this.veldpositie = veldpositie;
 	}
 	public int getSlagvolgorde() {
