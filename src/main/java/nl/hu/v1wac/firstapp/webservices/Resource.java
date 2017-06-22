@@ -274,7 +274,7 @@ public class Resource {
 			job.add("speler_naam", sdao.getSpelerNaam(o.getSpeler_id()));
 			jab4.add(job);
 		}
-		JsonArray array4 = jab2.build();
+		JsonArray array4 = jab4.build();
 		JsonArrayBuilder jab5 = Json.createArrayBuilder();
 		JsonObjectBuilder job5 = Json.createObjectBuilder();
 		job5.add("slagvolgorde_thuis",array1);
