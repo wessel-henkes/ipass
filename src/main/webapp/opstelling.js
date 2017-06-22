@@ -5,7 +5,7 @@ function getSlagvolgorde(data,team){
 			console.log(data);
 			if (Object.keys(Object.keys(data).length).length == 0){
 				alert("van deze wedstrijd is de opstelling nog niet ingevoerd.");
-				window.location.href = 'home.html';
+	//			window.location.href = 'home.html';
 				} else{
 				if (team =="thuis"){
 					$.each(data,function(i, item){
@@ -49,8 +49,8 @@ function getVeldpositie(data,team){
 		console.log(data);
 		if (Object.keys(data).length == 0){
 		alert("de veldposities zijn nog niet bekend.");
-		$("#veldpositie1").hide();
-		$("#veldpositie2").hide();
+		$("#veldpositie1");
+		$("#veldpositie2");
 		} else{
 				if (team =="thuis"){
 					$.each(data,function(i, item){
