@@ -109,7 +109,7 @@ function load(){
 	var item = JSON.parse(window.sessionStorage.getItem("WedstrijdData"));
 	console.log(item);
 	var x = "'"
-	$("#wedstrijd").append('<div class="col-3 col-m-3 "><div class="card"><div class="container"><h4><b>'+item.team_thuis+' tegen '+item.team_uit+' </b></h4><p>datum: '+item.datum+'</p><p>tijd:'+item.tijd+'</p></div></div></div>');
+	$("#wedstrijd").append('<div class="col-3 col-m-3 " style="width:100%;"><div class="card"><div class="container"><h4><b>'+item.team_thuis+' tegen '+item.team_uit+' </b></h4><p>datum: '+item.datum+'</p><p>tijd:'+item.tijd+'</p></div></div></div>');
 	
 	$(".header").append('<h1>Opstelling '+item.team_thuis+' tegen '+item.team_uit+'</h1>');
 	$(".thuis").append('<h2>'+item.team_thuis+'</h2>');
