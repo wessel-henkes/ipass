@@ -237,7 +237,7 @@ public class Resource {
 	public String getOpstelling(@FormParam("wedstrijd_id") int wedstrijd_id, @FormParam("team_thuis_id") int team_thuis_id, @FormParam("team_uit_id") int team_uit_id) {
 		OpstellingDAO dao = new OpstellingDAO();
 		SpelerDAO sdao = new SpelerDAO();
-		JsonArrayBuilder jab1 = Json.createArrayBuilder();
+		JsonArrayBuilder jab1 = Json.createArrayBuilder(); //slag thuis
 		for (Opstelling o : dao.getSlagvolgordeByWedstrijdByTeam(wedstrijd_id, team_thuis_id)) {
 			JsonObjectBuilder job = Json.createObjectBuilder();
 			if (o.getSlagvolgorde() != 0){job.add("slagvolgorde", o.getSlagvolgorde());}
@@ -247,16 +247,16 @@ public class Resource {
 		}
 		JsonArray array1 = jab1.build();
 		
-		JsonArrayBuilder jab2 = Json.createArrayBuilder();
+		JsonArrayBuilder jab2 = Json.createArrayBuilder(); //veld thuis
 		for (Opstelling o : dao.getVeldpositieByWedstrijdByTeam(wedstrijd_id, team_thuis_id)) {
 			JsonObjectBuilder job = Json.createObjectBuilder();
-			job.add("slagvolgorde", o.getVeldpositie());
+			job.add("veldpositie", o.getVeldpositie());
 			job.add("speler_id", o.getSpeler_id());
 			job.add("speler_naam", sdao.getSpelerNaam(o.getSpeler_id()));
 			jab2.add(job);
 		}
 		JsonArray array2 = jab2.build();
-		JsonArrayBuilder jab3 = Json.createArrayBuilder();
+		JsonArrayBuilder jab3 = Json.createArrayBuilder(); //slag uit
 		for (Opstelling o : dao.getSlagvolgordeByWedstrijdByTeam(wedstrijd_id, team_uit_id)) {
 			JsonObjectBuilder job = Json.createObjectBuilder();
 			if (o.getSlagvolgorde() != 0){job.add("slagvolgorde", o.getSlagvolgorde());}
@@ -266,10 +266,10 @@ public class Resource {
 		}
 		JsonArray array3 = jab3.build();
 		
-		JsonArrayBuilder jab4 = Json.createArrayBuilder();
+		JsonArrayBuilder jab4 = Json.createArrayBuilder();//veld uit
 		for (Opstelling o : dao.getVeldpositieByWedstrijdByTeam(wedstrijd_id, team_uit_id)) {
 			JsonObjectBuilder job = Json.createObjectBuilder();
-			job.add("slagvolgorde", o.getVeldpositie());
+			job.add("veldpositie", o.getVeldpositie());
 			job.add("speler_id", o.getSpeler_id());
 			job.add("speler_naam", sdao.getSpelerNaam(o.getSpeler_id()));
 			jab4.add(job);
