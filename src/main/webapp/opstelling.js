@@ -75,7 +75,7 @@ function getVeldpositie(data,team){
 
 
 function load(){
-	
+	$(".card").hide();
 	$.ajax({
 		url: "restservices/app/oopstelling",
 		method: 'POST',
@@ -92,6 +92,7 @@ function load(){
 				getSlagvolgorde(item.slagvolgorde_thuis,"uit");
 				getVeldpositie(item.veldpositie_thuis,"thuis");
 				getVeldpositie(item.veldpositie_uit,"uit");
+				$(".card").show();
 			})
 		},
 		error: function (jqXHR, exception){
