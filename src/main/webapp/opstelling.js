@@ -48,10 +48,10 @@ function getSlagvolgorde(data,team){
 
 function getVeldpositie(data,team){
 		console.log(data);
-		if (Object.keys(data).length == 0){
+		if (Object.keys(Object.keys(data)).length == 0){
 		alert("de veldposities zijn nog niet bekend.");
-		$("#veldpositie1");
-		$("#veldpositie2");
+		$("#veldpositie1").hide();
+		$("#veldpositie2").hide();
 		} else{
 				if (team =="thuis"){
 					$.each(data,function(i, item){
