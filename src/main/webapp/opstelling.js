@@ -1,7 +1,7 @@
 window.onload = load();
 function getSlagvolgorde(team_id,wedstrijd_id,team){
 $.ajax({
-		url: "restservices/app/slagvolgorde",
+		url: "restservices/app/opstelling/slagvolgorde",
 		method: 'POST',
 		data:{"team_id":team_id,"wedstrijd_id":wedstrijd_id},
 		beforeSend: function (xhr) {
