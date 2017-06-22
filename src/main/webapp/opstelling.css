@@ -110,7 +110,7 @@ html {
 	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
     width: 100%;
- 
+ 	float:left;
 }
 
 .card:hover {
@@ -169,7 +169,7 @@ html {
 			margin-left: -44px;
 		}
 
-		.spelers li #veldpositie{
+		.spelers li{
 			list-style: none;
 			border: 1px solid rgba(13, 114, 203, 0.79);;
 

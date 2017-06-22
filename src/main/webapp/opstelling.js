@@ -65,7 +65,7 @@ function getVeldpositie(team_id,wedstrijd_id,team){
 					})
 				}
 			},
-			fail: function(){
+			error: function(){
 				alert("de veldposities zijn nog niet bekend.");
 				$("#veldpositie").hide;
 			}
