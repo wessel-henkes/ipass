@@ -17,7 +17,8 @@ $.ajax({
 					console.log(item);
 					if (item.slagvolgorde == 0){
 						alert("van deze wedstrijd is de opstelling nog niet ingevoerd.");
-						window.location.href = 'home.html';
+						window.location.assign('home.html)';
+						return false;
 					}
 					$("#slagvolgorde_thuis").append('<li value="'+item.slagvolgorde+'"/>'+item.speler_naam+'</li>')
 				})
