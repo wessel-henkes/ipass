@@ -195,7 +195,7 @@ html {
     float:left;
 }
 h2{
-	float: left;
+	float: inherit;
     margin: 5px;
 
 }
