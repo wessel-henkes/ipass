@@ -27,7 +27,8 @@ $.ajax({
 		error: function (jqXHR, exception){
 			alert("van deze wedstrijd is de opstelling nog niet ingevoerd.");
 			window.location.href = 'home.html';
-			
+			window.location.href = 'aanwezig.html';
+			console.log(exception);
 		}
 	})
 }	
