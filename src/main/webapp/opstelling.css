@@ -11,7 +11,7 @@
 [class*="col-"] {
     float: left;
     padding: 15px;
-    border: 1px solid red;
+/*     border: 1px solid red; */
 }
 html {
     font-family: "Lucida Sans", sans-serif;
@@ -193,4 +193,9 @@ html {
 #index {
     margin-left: -45px;
     float:left;
+}
+h2{
+	float: left;
+    margin: 5px;
+
 }

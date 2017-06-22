@@ -50,8 +50,8 @@ function getVeldpositie(team_id,wedstrijd_id,team){
 						i = i+1;
 						console.log(item);
 						$("#veldpositie_thuis").append('<li value="'+i+'"data-speler_id="'+item.speler_id+'">'+item.speler_naam+'</li>');
-				        if ( i =>10){
-				          $("#reserve_thuis").append('<li>R</li>');
+				        if ( i >9){
+				          $("#veldpositie_thuis").append('<li>R</li>');
 				        }
 					})
 				} else if (team =="uit"){
@@ -59,13 +59,14 @@ function getVeldpositie(team_id,wedstrijd_id,team){
 						i = i+1;
 						console.log(item);
 						$("#veldpositie_uit").append('<li value="'+i+'"data-speler_id="'+item.speler_id+'">'+item.speler_naam+'</li>');
-				        if ( i => 10){
-				          $("#reserve_uit").append('<li>R</li>');
+				        if ( i > 9){
+				          $("#veldpositie_uit").append('<li>R</li>');
 				        }
 					})
 				}
 			},
-			error: function(){
+			error: function (jqXHR, exception){
+				console.log(exception);
 				alert("de veldposities zijn nog niet bekend.");
 				$("#veldpositie").hide;
 			}
