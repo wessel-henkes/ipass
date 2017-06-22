@@ -276,11 +276,12 @@ public class Resource {
 		}
 		JsonArray array4 = jab2.build();
 		JsonArrayBuilder jab5 = Json.createArrayBuilder();
-		jab5.add(array1);
-		jab5.add(array2);
-		jab5.add(array3);
-		jab5.add(array4);
-		
+		JsonObjectBuilder job5 = Json.createObjectBuilder();
+		job5.add("slagvolgorde_thuis",jab1);
+		job5.add("slagvolgorde_uit",array3);
+		job5.add("veldpositie_thuis",array2);
+		job5.add("veldpositie_uit",array4);
+		jab5.add(job5);
 		JsonArray array = jab5.build();
 		return array.toString();
 	}
