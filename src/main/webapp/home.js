@@ -20,7 +20,7 @@ function loadWedstrijden(){
 				console.log(item);
 				window.sessionStorage.setItem("WedstrijdData"+i, JSON.stringify(item));
 				var x = "'"
-				$("#wedstrijden").append('<div class="col-3 col-m-3 "><div class="card"><div class="container"><h4><b>'+item.team_thuis+' tegen '+item.team_uit+' </b></h4><p>datum: '+item.datum+'</p><p>tijd:'+item.tijd+'</p><button class="button"><span><b>opstelling bekijken</b></span></button><button id="invoeren'+i+'" class="button" onclick='+x+'opstellingInvoeren('+i+')'+x+'><span><b>opstelling invoeren</b></span></button><button class="button" onclick='+x+'function(){$("#invoeren'+i+'").click;}'+x+'><span><b>opstelling aanpassen</b></span></button><button class="button" onclick='+x+'opstellingVerwijderen('+item.id+')'+x+'><span><b>opstelling verwijderen</b></span></button></div></div></div>');
+				$("#wedstrijden").append('<div class="col-3 col-m-3 "><div class="card"><div class="container"><h4><b>'+item.team_thuis+' tegen '+item.team_uit+' </b></h4><p>datum: '+item.datum+'</p><p>tijd:'+item.tijd+'</p><button class="button"><span><b>opstelling bekijken</b></span></button><button id="invoeren'+i+'" class="button" onclick='+x+'opstellingInvoeren('+i+')'+x+'><span><b>opstelling invoeren</b></span></button><button class="button" onclick='+x+'opstellingAanpassenfunction('+i+')}'+x+'><span><b>opstelling aanpassen</b></span></button><button class="button" onclick='+x+'opstellingVerwijderen('+item.id+')'+x+'><span><b>opstelling verwijderen</b></span></button></div></div></div>');
 			})
 			} else {
 				$.each(data,function(i, item){
@@ -58,3 +58,7 @@ function opstellingVerwijderen(wedstrijd_id){
 			}
 		});
 	}
+
+function opstellingAanpassenfunction(x){
+		$('#invoeren'+x).click;
+}
