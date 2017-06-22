@@ -1,4 +1,5 @@
 window.onload = load();
+var exitSubmit = false;
 function getSlagvolgorde(data,team){
 			console.log(data);
 			if (Object.keys(data).length == 0){
@@ -40,7 +41,7 @@ function getSlagvolgorde(data,team){
 }
 		
 
-var exitSubmit = false;
+
 
 
 function getVeldpositie(data,team){
