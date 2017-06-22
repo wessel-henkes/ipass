@@ -228,5 +228,95 @@ public class Resource {
 		}
 		return out;
 	}
+
+	
+	@POST
+	@RolesAllowed({"user","admin"})
+	@Produces("application/json")
+	@Path("/opstelling/oopstelling")
+	public String getOpstelling(@FormParam("wedstrijd_id") int wedstrijd_id, @FormParam("team_thuis_id") int team_thuis_id, @FormParam("team_uit_id") int team_uit_id) {
+		OpstellingDAO dao = new OpstellingDAO();
+		SpelerDAO sdao = new SpelerDAO();
+		JsonArrayBuilder jab1 = Json.createArrayBuilder();
+		for (Opstelling o : dao.getSlagvolgordeByWedstrijdByTeam(wedstrijd_id, team_thuis_id)) {
+			JsonObjectBuilder job = Json.createObjectBuilder();
+			if (o.getSlagvolgorde() != 0){job.add("slagvolgorde", o.getSlagvolgorde());}
+			job.add("speler_id", o.getSpeler_id());
+			job.add("speler_naam", sdao.getSpelerNaam(o.getSpeler_id()));
+			jab1.add(job);
+		}
+		JsonArray array1 = jab1.build();
+		
+		JsonArrayBuilder jab2 = Json.createArrayBuilder();
+		for (Opstelling o : dao.getVeldpositieByWedstrijdByTeam(wedstrijd_id, team_thuis_id)) {
+			JsonObjectBuilder job = Json.createObjectBuilder();
+			job.add("slagvolgorde", o.getVeldpositie());
+			job.add("speler_id", o.getSpeler_id());
+			job.add("speler_naam", sdao.getSpelerNaam(o.getSpeler_id()));
+			jab2.add(job);
+		}
+		JsonArray array2 = jab2.build();
+		JsonArrayBuilder jab3 = Json.createArrayBuilder();
+		for (Opstelling o : dao.getSlagvolgordeByWedstrijdByTeam(wedstrijd_id, team_uit_id)) {
+			JsonObjectBuilder job = Json.createObjectBuilder();
+			if (o.getSlagvolgorde() != 0){job.add("slagvolgorde", o.getSlagvolgorde());}
+			job.add("speler_id", o.getSpeler_id());
+			job.add("speler_naam", sdao.getSpelerNaam(o.getSpeler_id()));
+			jab3.add(job);
+		}
+		JsonArray array3 = jab3.build();
+		
+		JsonArrayBuilder jab4 = Json.createArrayBuilder();
+		for (Opstelling o : dao.getVeldpositieByWedstrijdByTeam(wedstrijd_id, team_uit_id)) {
+			JsonObjectBuilder job = Json.createObjectBuilder();
+			job.add("slagvolgorde", o.getVeldpositie());
+			job.add("speler_id", o.getSpeler_id());
+			job.add("speler_naam", sdao.getSpelerNaam(o.getSpeler_id()));
+			jab4.add(job);
+		}
+		JsonArray array4 = jab2.build();
+		JsonArrayBuilder jab5 = Json.createArrayBuilder();
+		jab5.add(array1);
+		jab5.add(array2);
+		jab5.add(array3);
+		jab5.add(array4);
+		
+		JsonArray array = jab5.build();
+		return array.toString();
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 }

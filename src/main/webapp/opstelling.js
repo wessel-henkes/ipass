@@ -85,6 +85,21 @@ function getVeldpositie(team_id,wedstrijd_id,team){
 }
 
 function load(){
+	
+	$.ajax({
+		url: "restservices/app/oopstelling",
+		method: 'POST',
+		data:{"team_thuis_id":1,"team_uit_id":2,"wedstrijd_id":3},
+		beforeSend: function (xhr) {
+		var token = window.sessionStorage.getItem("sessionToken");
+		xhr.setRequestHeader( 'Authorization', 'Bearer ' + token);
+		},
+		
+		success: function (data) {
+			console.log(data);
+		}
+	})
+	
 	var role =window.sessionStorage.getItem("role");
 	console.log("role="+role);
 	if (role != "admin"){window.location.href = 'home.html';}
