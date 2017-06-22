@@ -1,9 +1,8 @@
 window.onload = load();
 var exitSubmit = false;
 function getSlagvolgorde(data,team){
-			console.log(data);
-			console.log(data);
-			if (Object.keys(Object.keys(data).length).length == 0){
+	console.logObject.keys(Object.keys(data).length);
+		if (Object.keys(Object.keys(data).length) == 0){
 				alert("van deze wedstrijd is de opstelling nog niet ingevoerd.");
 	//			window.location.href = 'home.html';
 				} else{
