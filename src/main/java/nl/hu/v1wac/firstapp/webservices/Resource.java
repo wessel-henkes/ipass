@@ -132,7 +132,7 @@ public class Resource {
 		JsonArrayBuilder jab = Json.createArrayBuilder();
 		for (Opstelling o : dao.getSlagvolgordeByWedstrijdByTeam(wedstrijd_id, team_id)) {
 			JsonObjectBuilder job = Json.createObjectBuilder();
-			job.add("slagvolgorde", o.getSlagvolgorde());
+			if (o.getSlagvolgorde() != 0){job.add("slagvolgorde", o.getSlagvolgorde());}
 			job.add("speler_id", o.getSpeler_id());
 			job.add("speler_naam", sdao.getSpelerNaam(o.getSpeler_id()));
 			jab.add(job);

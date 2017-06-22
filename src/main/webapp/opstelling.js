@@ -17,10 +17,10 @@ $.ajax({
 					console.log(item);
 					if (item.slagvolgorde == 0){
 						alert("van deze wedstrijd is de opstelling nog niet ingevoerd.");
-						window.location.assign('home.html)';
+						window.location.assign('home.html');
 						return false;
-					}
-					$("#slagvolgorde_thuis").append('<li value="'+item.slagvolgorde+'"/>'+item.speler_naam+'</li>')
+					}else{$("#slagvolgorde_thuis").append('<li value="'+item.slagvolgorde+'"/>'+item.speler_naam+'</li>')}
+					
 				})
 			} else if (team =="uit"){
 				$.each(data,function(i, item){
