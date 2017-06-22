@@ -104,16 +104,13 @@ function load(){
 	
 	var role =window.sessionStorage.getItem("role");
 	console.log("role="+role);
-	if (role != "admin"){window.location.href = 'home.html';}
+	if (role != "admin" && role !="user"){window.location.href = 'home.html';}
 	
 	var item = JSON.parse(window.sessionStorage.getItem("WedstrijdData"));
 	console.log(item);
 	var x = "'"
 	$("#wedstrijd").append('<div class="col-3 col-m-3 "><div class="card"><div class="container"><h4><b>'+item.team_thuis+' tegen '+item.team_uit+' </b></h4><p>datum: '+item.datum+'</p><p>tijd:'+item.tijd+'</p></div></div></div>');
-	getSlagvolgorde(item.team_thuis_id,item.id,"thuis");
-	getSlagvolgorde(item.team_uit_id,item.id,"uit");
-	getVeldpositie(item.team_thuis_id,item.id,"thuis");
-	getVeldpositie(item.team_uit_id,item.id,"uit");
+	
 	$(".header").append('<h1>Opstelling '+item.team_thuis+' tegen '+item.team_uit+'</h1>');
 	$(".thuis").append('<h2>'+item.team_thuis+'</h2>');
 	$(".uit").append('<h2>'+item.team_uit+'</h2>');
