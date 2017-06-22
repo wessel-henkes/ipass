@@ -15,11 +15,19 @@ $.ajax({
 			if (team =="thuis"){
 				$.each(data,function(i, item){
 					console.log(item);
-					$("#slagvolgorde_uit").append('<li value="'+item.slagvolgorde+'"/>'+item.speler_naam+'</li>')
+					if (item.slagvolgorde == 0){
+						alert("van deze wedstrijd is de opstelling nog niet ingevoerd.");
+						window.location.href = 'home.html';
+					}
+					$("#slagvolgorde_thuis").append('<li value="'+item.slagvolgorde+'"/>'+item.speler_naam+'</li>')
 				})
 			} else if (team =="uit"){
 				$.each(data,function(i, item){
 					console.log(item);
+					if (item.slagvolgorde == 0){
+						alert("van deze wedstrijd is de opstelling nog niet ingevoerd.");
+						window.location.href = 'home.html';
+					}
 					$("#slagvolgorde_uit").append('<li value="'+item.slagvolgorde+'"/>'+item.speler_naam+'</li>')
 				})
 			}
