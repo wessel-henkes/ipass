@@ -277,7 +277,7 @@ public class Resource {
 		JsonArray array4 = jab2.build();
 		JsonArrayBuilder jab5 = Json.createArrayBuilder();
 		JsonObjectBuilder job5 = Json.createObjectBuilder();
-		job5.add("slagvolgorde_thuis",jab1);
+		job5.add("slagvolgorde_thuis",array1);
 		job5.add("slagvolgorde_uit",array3);
 		job5.add("veldpositie_thuis",array2);
 		job5.add("veldpositie_uit",array4);
