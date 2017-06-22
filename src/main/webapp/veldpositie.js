@@ -27,9 +27,9 @@ function getSpelers(team_id,wedstrijd_id){
 						i = i+1;
 						console.log(item);
 						$("#spelers").append('<li value="'+i+'"draggable="true" data-speler_id="'+item.speler_id+'">'+item.speler_naam+'</li>');
-            if ( i => 8){
-              $("#index").append('<li>R</li>');
-            }
+		            if ( i > 9){
+		              $("#index").append('<li>R</li>');
+		            }
 					})
 
 					$(function() { //voor sortable list
