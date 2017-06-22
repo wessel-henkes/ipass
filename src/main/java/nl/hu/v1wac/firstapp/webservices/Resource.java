@@ -233,7 +233,7 @@ public class Resource {
 	@POST
 	@RolesAllowed({"user","admin"})
 	@Produces("application/json")
-	@Path("/opstelling/oopstelling")
+	@Path("/oopstelling")
 	public String getOpstelling(@FormParam("wedstrijd_id") int wedstrijd_id, @FormParam("team_thuis_id") int team_thuis_id, @FormParam("team_uit_id") int team_uit_id) {
 		OpstellingDAO dao = new OpstellingDAO();
 		SpelerDAO sdao = new SpelerDAO();
