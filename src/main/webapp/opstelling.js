@@ -4,7 +4,7 @@ function getSlagvolgorde(data,team){
 	console.log(Object.keys(Object.keys(data)).length);
 	
 	console.log(data);
-		if(data = null){
+		if(Object.keys(Object.keys(data)).length == 0){
 				alert("van deze wedstrijd is de opstelling nog niet ingevoerd.");
 	//			window.location.href = 'home.html';
 				} else{
