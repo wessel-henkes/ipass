@@ -58,10 +58,10 @@ function opstellingVerwijderen(wedstrijd_id){
 			xhr.setRequestHeader( 'Authorization', 'Bearer ' + token);
 			},
 		success: function(response) {
-				alert("Country deleted!");
+				alert("Opstelling verwijderd!");
 			},
 			error: function(response) {
-				alert("Could not delete Country!");
+				alert("Opstelling kon niet verwijderd worden");
 			}
 		});
 	}

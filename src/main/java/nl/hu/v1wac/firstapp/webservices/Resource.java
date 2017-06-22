@@ -206,7 +206,7 @@ public class Resource {
 				Response out = Response.status(Response.Status.CONFLICT).build();
 				System.out.println("setting Veldpositie");	
 				OpstellingDAO dao = new OpstellingDAO();	
-				if (dao.setSlagvolgorde(wedstrijd_id,speler_id_arr,team_id) == true){
+				if (dao.setVeldpositie(wedstrijd_id,speler_id_arr,team_id) == true){
 					out = Response.ok().build();
 				}else{
 					out = Response.status(Response.Status.CONFLICT).build();
