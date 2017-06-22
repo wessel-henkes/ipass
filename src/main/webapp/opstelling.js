@@ -51,7 +51,7 @@ function getVeldpositie(team_id,wedstrijd_id,team){
 						console.log(item);
 						$("#veldpositie_thuis").append('<li value="'+i+'"data-speler_id="'+item.speler_id+'">'+item.speler_naam+'</li>');
 				        if ( i >9){
-				          $("#veldpositie_thuis").append('<li>R</li>');
+				          $("#index_thuis").append('<li>R</li>');
 				        }
 					})
 				} else if (team =="uit"){
@@ -60,7 +60,7 @@ function getVeldpositie(team_id,wedstrijd_id,team){
 						console.log(item);
 						$("#veldpositie_uit").append('<li value="'+i+'"data-speler_id="'+item.speler_id+'">'+item.speler_naam+'</li>');
 				        if ( i > 9){
-				          $("#veldpositie_uit").append('<li>R</li>');
+				          $("#index_uit").append('<li>R</li>');
 				        }
 					})
 				}
