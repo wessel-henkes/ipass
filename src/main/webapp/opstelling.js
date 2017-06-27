@@ -5,7 +5,7 @@ function getSlagvolgorde(data,team){
 	
 	console.log(data);
 		if(Object.keys(Object.keys(data)).length == 0){
-				alert("van deze wedstrijd is de opstelling nog niet ingevoerd.");
+				alert("Van deze wedstrijd is de opstelling nog niet ingevoerd.");
 	//			window.location.href = 'home.html';
 				} else{
 				if (team =="thuis"){
@@ -18,7 +18,7 @@ function getSlagvolgorde(data,team){
 						
 					});
 					if (exitSubmit) {
-						alert("voor deze wedstrijd is de opstelling nog niet ingevoerd.");
+						alert("Voor deze wedstrijd is de opstelling nog niet ingevoerd.");
 //						window.location.assign('home.html');
 					    return false;
 					}
@@ -34,7 +34,7 @@ function getSlagvolgorde(data,team){
 						}
 					});
 					if (exitSubmit) {
-						alert("voor deze wedstrijd is de opstelling nog niet ingevoerd.");
+						alert("Voor deze wedstrijd is de opstelling nog niet ingevoerd.");
 //						window.location.assign('home.html');
 					    return false;
 					}
@@ -49,30 +49,33 @@ function getSlagvolgorde(data,team){
 function getVeldpositie(data,team){
 		console.log(data);
 		if (Object.keys(Object.keys(data)).length == 0){
-		alert("de veldposities zijn nog niet bekend.");
-		$("#veldpositie1").hide();
-		$("#veldpositie2").hide();
-		} else{
-				if (team =="thuis"){
-					$.each(data,function(i, item){
-						i = i+1;
-						console.log(item);
-						$("#veldpositie_thuis").append('<li value="'+i+'"data-speler_id="'+item.speler_id+'">'+item.speler_naam+'</li>');
-				        if ( i > 9){
-				          $("#index_thuis").append('<li>R</li>');
-				        }
-					})
-				} else if (team =="uit"){
-					$.each(data,function(i, item){
-						i = i+1;
-						console.log(item);
-						$("#veldpositie_uit").append('<li value="'+i+'"data-speler_id="'+item.speler_id+'">'+item.speler_naam+'</li>');
-				        if ( i > 9){
-				          $("#index_uit").append('<li>R</li>');
-				        }
-					})
-				}
+			alert("De veldposities van het "+team+" spelende team is nog niet bekend.");
+			if (team =="thuis"){
+				$("#veldpositie1").hide();
+			} else if (team =="uit"){
+				$("#veldpositie2").hide();
 			}
+			} else{
+					if (team =="thuis"){
+						$.each(data,function(i, item){
+							i = i+1;
+							console.log(item);
+							$("#veldpositie_thuis").append('<li value="'+i+'"data-speler_id="'+item.speler_id+'">'+item.speler_naam+'</li>');
+					        if ( i > 9){
+					          $("#index_thuis").append('<li>R</li>');
+					        }
+						})
+					} else if (team =="uit"){
+						$.each(data,function(i, item){
+							i = i+1;
+							console.log(item);
+							$("#veldpositie_uit").append('<li value="'+i+'"data-speler_id="'+item.speler_id+'">'+item.speler_naam+'</li>');
+					        if ( i > 9){
+					          $("#index_uit").append('<li>R</li>');
+					        }
+						})
+					}
+				}
 }
 
 
@@ -98,8 +101,8 @@ function load(){
 			})
 		},
 		error: function (jqXHR, exception){
-			alert("van deze wedstrijd is de opstelling nog niet ingevoerd.");
-//			window.location.href = 'home.html';
+			alert("Van deze wedstrijd is de opstelling nog niet ingevoerd.");
+			window.location.href = 'home.html';
 			
 			console.log(exception);
 		}

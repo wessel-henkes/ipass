@@ -101,7 +101,7 @@ public class OpstellingDAO extends BaseDAO {
 			
 			for (int speler_id : speler_id_arr){
 				String bestaat ="SELECT id FROM opstelling WHERE wedstrijd_id="+wedstrijd_id+" AND team_id="+team_id+" AND speler_id="+speler_id+";";
-				ResultSet dbResultSet = stmt.executeQuery(bestaat);
+				ResultSet dbResultSet = stmt.executeQuery(bestaat); // checkt of de speler al is aangemaakt voor deze wedstrijd
 				if (dbResultSet.next()){}
 				else {
 					String query = "INSERT INTO opstelling (speler_id, team_id, wedstrijd_id)  "+ " VALUES ("+speler_id+","+team_id+","+wedstrijd_id+");";
@@ -131,7 +131,13 @@ public class OpstellingDAO extends BaseDAO {
 				Opstelling o = new Opstelling(index,speler_id,team_id,wedstrijd_id);
 				String query = "UPDATE opstelling SET slagvolgorde="+o.getSlagvolgorde()+" WHERE  wedstrijd_id="+o.getWedstrijd_id()+" AND team_id="+o.getTeam_id()+" AND speler_id="+o.getSpeler_id()+" RETURNING speler_id;";
 				System.out.println(query);
-				stmt.executeUpdate(query);
+				ResultSet dbResultSet = stmt.executeQuery(query);
+				int r1 = 0;
+				while (dbResultSet.next()) {
+					 r1 += 1;
+//					 System.out.println(dbResultSet.getString("speler_id"));
+				}
+				System.out.println("rows deleted="+r1);
 				index++;
 			}			
 			con.close();
@@ -153,8 +159,13 @@ public class OpstellingDAO extends BaseDAO {
 				Opstelling o = new Opstelling(index,speler_id,team_id,wedstrijd_id);
 				String query = "UPDATE opstelling SET veldpositie="+o.getSlagvolgorde()+" WHERE  wedstrijd_id="+o.getWedstrijd_id()+" AND team_id="+o.getTeam_id()+" AND speler_id="+o.getSpeler_id()+" RETURNING speler_id;";
 				System.out.println(query);
-				int dbResultSet = stmt.executeUpdate(query);
-				System.out.println("rows deleted="+dbResultSet);
+				ResultSet dbResultSet = stmt.executeQuery(query);
+				int r1 = 0;
+				while (dbResultSet.next()) {
+					 r1 += 1;
+//					 System.out.println(dbResultSet.getString("speler_id"));
+				}
+				System.out.println("rows deleted="+r1);
 				index++;
 			}			
 			con.close();
@@ -176,7 +187,7 @@ public class OpstellingDAO extends BaseDAO {
 			int r1 = 0;
 			while (dbResultSet.next()) {
 				 r1 += 1;
-				 System.out.println(dbResultSet.getString("speler_id"));
+//				 System.out.println(dbResultSet.getString("speler_id"));
 			}
 			System.out.println("rows deleted="+r1);
 			out = true;
