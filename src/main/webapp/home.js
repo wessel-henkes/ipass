@@ -64,7 +64,7 @@ function opstellingVerwijderen(wedstrijd_id){
 				alert("Opstelling kon niet verwijderd worden");
 			}
 		});
-	}
+}
 
 function opstellingAanpassen(x){
 		$('#invoeren'+x).click;

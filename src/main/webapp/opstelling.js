@@ -91,7 +91,7 @@ function load(){
 			console.log(data);
 			$.each(data,function(i, item){
 				getSlagvolgorde(item.slagvolgorde_thuis,"thuis");
-				getSlagvolgorde(item.slagvolgorde_thuis,"uit");
+				getSlagvolgorde(item.slagvolgorde_uit,"uit");
 				getVeldpositie(item.veldpositie_thuis,"thuis");
 				getVeldpositie(item.veldpositie_uit,"uit");
 				$(".card").show();

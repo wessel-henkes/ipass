@@ -94,9 +94,10 @@ public class OpstellingDAO extends BaseDAO {
 					 a += 1;	 
 				 }
 			 }
-			String deletequery = "DELETE FROM opstelling WHERE wedstrijd_id="+wedstrijd_id+" AND team_id="+team_id+" AND speler_id NOT IN ("+id+") ;";
+			String deletequery = "DELETE count FROM opstelling WHERE wedstrijd_id="+wedstrijd_id+" AND team_id="+team_id+" AND speler_id NOT IN ("+id+") ;";
 			System.out.println(deletequery);
-			stmt.executeUpdate(deletequery);
+			int dbResultSetDelete = stmt.executeUpdate(deletequery);
+			System.out.println("rows deleted="+dbResultSetDelete);
 			
 			for (int speler_id : speler_id_arr){
 				String bestaat ="SELECT id FROM opstelling WHERE wedstrijd_id="+wedstrijd_id+" AND team_id="+team_id+" AND speler_id="+speler_id+";";
@@ -152,7 +153,8 @@ public class OpstellingDAO extends BaseDAO {
 				Opstelling o = new Opstelling(index,speler_id,team_id,wedstrijd_id);
 				String query = "UPDATE opstelling SET veldpositie="+o.getSlagvolgorde()+" WHERE  wedstrijd_id="+o.getWedstrijd_id()+" AND team_id="+o.getTeam_id()+" AND speler_id="+o.getSpeler_id()+";";
 				System.out.println(query);
-				stmt.executeUpdate(query);
+				int dbResultSet = stmt.executeUpdate(query);
+				System.out.println("rows deleted="+dbResultSet);
 				index++;
 			}			
 			con.close();
@@ -165,7 +167,7 @@ public class OpstellingDAO extends BaseDAO {
 
 	
 	public boolean deleteOpstellingByWedstrijd(int wedstrijd_id){
-		String query = "DELETE FROM opstelling WHERE wedstrijd_id="+wedstrijd_id+";";
+		String query = "DELETE count FROM opstelling WHERE wedstrijd_id="+wedstrijd_id+";";
 		boolean out = false;
 		System.out.println(query);
 		try (Connection con = super.getConnection()) {
