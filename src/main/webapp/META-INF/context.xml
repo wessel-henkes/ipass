@@ -2,7 +2,7 @@
 <Context>
 
  <Resource name="jdbc/PostgresDS"
- url="jdbc:postgres://aeyshnbrfaagyl:61ef0f7296828623e061f607943ab36df2271eec1a3e3ff5f214245130f4d53f@ec2-23-21-246-11.compute-1.amazonaws.com:5432/d4m4m72f34q9kj"
+ url="jdbc:postgresql://ec2-23-21-246-11.compute-1.amazonaws.com:5432/d4m4m72f34q9kj?sslfactory=org.postgresql.ssl.NonValidatingFactory;ssl=true"
  driverClassName="org.postgresql.Driver"
  auth="Container"
  type="javax.sql.DataSource"
