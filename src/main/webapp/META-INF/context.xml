@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Context>
+
  <Resource name="jdbc/PostgresDS"
- url="jdbc:postgresql://localhost:5432/ipass/d4m4m72f34q9kj"
+ url="jdbc:postgres://aeyshnbrfaagyl:61ef0f7296828623e061f607943ab36df2271eec1a3e3ff5f214245130f4d53f@ec2-23-21-246-11.compute-1.amazonaws.com:5432/d4m4m72f34q9kj"
  driverClassName="org.postgresql.Driver"
  auth="Container"
  type="javax.sql.DataSource"
