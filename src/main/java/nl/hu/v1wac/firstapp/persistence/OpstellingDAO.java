@@ -94,7 +94,7 @@ public class OpstellingDAO extends BaseDAO {
 					 a += 1;	 
 				 }
 			 }
-			String deletequery = "DELETE FROM opstelling WHERE wedstrijd_id="+wedstrijd_id+" AND team_id="+team_id+" AND speler_id NOT IN ("+id+") RETURNING speler_id;";
+			String deletequery = "DELETE FROM opstelling WHERE wedstrijd_id="+wedstrijd_id+" AND team_id="+team_id+" AND speler_id NOT IN ("+id+") ;";
 			System.out.println(deletequery);
 			int dbResultSetDelete = stmt.executeUpdate(deletequery);
 			System.out.println("rows deleted="+dbResultSetDelete);
@@ -172,7 +172,13 @@ public class OpstellingDAO extends BaseDAO {
 		System.out.println(query);
 		try (Connection con = super.getConnection()) {
 			Statement stmt = con.createStatement();
-			stmt.executeUpdate(query);
+			ResultSet dbResultSet = stmt.executeQuery(query);
+			int r1 = 0;
+			while (dbResultSet.next()) {
+				 r1 += 1;
+				 System.out.println(dbResultSet.getString("speler_id"));
+			}
+			System.out.println("rows deleted="+r1);
 			out = true;
 			con.close();
 		} catch (SQLException sqle) {
