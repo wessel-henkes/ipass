@@ -246,6 +246,7 @@ public class Resource {
 			jab1.add(job);
 		}
 		JsonArray array1 = jab1.build();
+		System.out.println(array1.toString());
 		
 		JsonArrayBuilder jab2 = Json.createArrayBuilder(); //veld thuis
 		for (Opstelling o : dao.getVeldpositieByWedstrijdByTeam(wedstrijd_id, team_thuis_id)) {
@@ -256,6 +257,8 @@ public class Resource {
 			jab2.add(job);
 		}
 		JsonArray array2 = jab2.build();
+		System.out.println(array2.toString());
+		
 		JsonArrayBuilder jab3 = Json.createArrayBuilder(); //slag uit
 		for (Opstelling o : dao.getSlagvolgordeByWedstrijdByTeam(wedstrijd_id, team_uit_id)) {
 			JsonObjectBuilder job = Json.createObjectBuilder();
@@ -265,6 +268,7 @@ public class Resource {
 			jab3.add(job);
 		}
 		JsonArray array3 = jab3.build();
+		System.out.println(array3.toString());
 		
 		JsonArrayBuilder jab4 = Json.createArrayBuilder();//veld uit
 		for (Opstelling o : dao.getVeldpositieByWedstrijdByTeam(wedstrijd_id, team_uit_id)) {
@@ -275,6 +279,8 @@ public class Resource {
 			jab4.add(job);
 		}
 		JsonArray array4 = jab4.build();
+		System.out.println(array4.toString());
+		
 		JsonArrayBuilder jab5 = Json.createArrayBuilder();
 		JsonObjectBuilder job5 = Json.createObjectBuilder();
 		job5.add("slagvolgorde_thuis",array1);
@@ -283,6 +289,7 @@ public class Resource {
 		job5.add("veldpositie_uit",array4);
 		jab5.add(job5);
 		JsonArray array = jab5.build();
+		System.out.println(array.toString());
 		return array.toString();
 	}
 	

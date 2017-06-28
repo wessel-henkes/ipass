@@ -137,7 +137,7 @@ public class OpstellingDAO extends BaseDAO {
 					 r1 += 1;
 //					 System.out.println(dbResultSet.getString("speler_id"));
 				}
-				System.out.println("rows deleted="+r1);
+				System.out.println("rows updated="+r1);
 				index++;
 			}			
 			con.close();
@@ -165,7 +165,7 @@ public class OpstellingDAO extends BaseDAO {
 					 r1 += 1;
 //					 System.out.println(dbResultSet.getString("speler_id"));
 				}
-				System.out.println("rows deleted="+r1);
+				System.out.println("rows updated="+r1);
 				index++;
 			}			
 			con.close();

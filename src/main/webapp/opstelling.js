@@ -6,7 +6,8 @@ function getSlagvolgorde(data,team){
 	console.log(data);
 		if(Object.keys(Object.keys(data)).length == 0){
 				alert("Van deze wedstrijd is de opstelling nog niet ingevoerd.");
-	//			window.location.href = 'home.html';
+				window.location.href = 'home.html';
+				return;
 				} else{
 				if (team =="thuis"){
 					$.each(data,function(i, item){
