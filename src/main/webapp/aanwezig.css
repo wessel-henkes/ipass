@@ -201,7 +201,7 @@ li.sortable-placeholder {
 	position: relative;
 }
 
-.Spelers label {
+.Spelers .checkbox {
 	cursor: pointer;
 	position: absolute;
 	width: 25px;
@@ -212,7 +212,7 @@ li.sortable-placeholder {
 	border:1px solid #ddd;
 }
 
-.Spelers label:after {
+.Spelers .checkbox:after {
 	opacity: 0.2;
 	content: '';
 	position: absolute;
@@ -230,7 +230,7 @@ li.sortable-placeholder {
 /**
  * Create the hover event of the tick
  */
-.Speler label:hover::after {
+.Speler .checkbox:hover::after {
 	opacity: 0.5;
 }
 
