@@ -32,4 +32,10 @@ $('#guest').click(function(){ //nog weghalen
 	window.location.href = 'les8_practicum1.html';
 });
 
-
+$(document).ready(function () {
+    $(document).ajaxStart(function () {
+        $("#loading").show();
+    }).ajaxStop(function () {
+        $("#loading").hide();
+    });
+});
