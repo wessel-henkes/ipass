@@ -3,6 +3,14 @@ $('.message a').click(function(){
 });
 
 $("#post").click(function(event){
+	 var username = document.getElementById("#username");
+	 var password= document.getElementById("#password");
+	 if(username.validity.checkValidity()){
+		 //test
+	 
+		 break;
+	 }
+	 
 	var data = $("#login").serialize();
 	console.log("data = "+data);
 	$.post("restservices/app/team",data,function(response){
