@@ -48,7 +48,7 @@ public class OpstellingDAO extends BaseDAO {
 			}
 			con.close();
 		} catch (SQLException sqle) {
-			//sqle.printStackT
+			sqle.printStackTrace();
 		}
 		return results;	
 	
@@ -71,7 +71,7 @@ public class OpstellingDAO extends BaseDAO {
 			}
 			con.close();
 		} catch (SQLException sqle) {
-			//sqle.printStackT
+			sqle.printStackTrace();
 		}
 		return results;	
 	

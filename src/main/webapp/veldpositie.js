@@ -117,7 +117,7 @@ function getSpelers(team_id,wedstrijd_id){
 
 					success: function (data) {
 						console.log(data);
-						window.sessionStorage.setItem("WedstrijdStatus","veldpositie_thuis");
+						window.sessionStorage.setItem("WedstrijdStatus","done");
 						window.location.href = 'opstelling.html';
 					}
 

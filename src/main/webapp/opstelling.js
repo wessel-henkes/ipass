@@ -4,44 +4,22 @@ function getSlagvolgorde(data,team){
 	console.log(Object.keys(Object.keys(data)).length);
 	
 	console.log(data);
-		if(Object.keys(Object.keys(data)).length == 0){
-				alert("Van deze wedstrijd is de opstelling nog niet ingevoerd.");
-				window.location.href = 'home.html';
-				return;
-				} else{
 				if (team =="thuis"){
 					$.each(data,function(i, item){
 						console.log(item);
-						if (item.slagvolgorde == 0){
-							 exitSubmit = true;
-		                      return;
-						}else{$("#slagvolgorde_thuis").append('<li value="'+item.slagvolgorde+'">'+item.speler_naam+'</li>')}
+						$("#slagvolgorde_thuis").append('<li value="'+item.slagvolgorde+'">'+item.speler_naam+'</li>')
 						
 					});
-					if (exitSubmit) {
-						alert("Voor deze wedstrijd is de opstelling nog niet ingevoerd.");
-//						window.location.assign('home.html');
-					    return;
-					}
+
 				} else if (team =="uit"){
 					$.each(data,function(i, item){
 						console.log(item);
-						if (item.slagvolgorde == 0){
-							 exitSubmit = true;
-		                      return;
-						}else{
-							
 						$("#slagvolgorde_uit").append('<li value="'+item.slagvolgorde+'">'+item.speler_naam+'</li>')
-						}
+						
 					});
-					if (exitSubmit) {
-						alert("Voor deze wedstrijd is de opstelling nog niet ingevoerd.");
-//						window.location.assign('home.html');
-					    return;
-					}
 				}
-			}
 }
+
 		
 
 
@@ -94,11 +72,16 @@ function load(){
 		success: function (data) {
 			console.log(data);
 			$.each(data,function(i, item){
-				getSlagvolgorde(item.slagvolgorde_thuis,"thuis");
-				getSlagvolgorde(item.slagvolgorde_uit,"uit");
-				getVeldpositie(item.veldpositie_thuis,"thuis");
-				getVeldpositie(item.veldpositie_uit,"uit");
-				$(".card").show();
+				if (Object.keys(Object.keys(item.slagvolgorde_thuis)).length == 0 || Object.keys(Object.keys(item.slagvolgorde_uit)).length == 0 ){
+					alert("Van deze wedstrijd is de opstelling nog niet ingevoerd.");
+					window.location.href = 'home.html';
+				}else{
+					getSlagvolgorde(item.slagvolgorde_thuis,"thuis");
+					getSlagvolgorde(item.slagvolgorde_uit,"uit");
+					getVeldpositie(item.veldpositie_thuis,"thuis");
+					getVeldpositie(item.veldpositie_uit,"uit");
+					$(".card").show();
+				}
 			})
 		},
 		error: function (jqXHR, exception){
