@@ -195,48 +195,47 @@ li.sortable-placeholder {
 	background: none;
 }
 
-.Spelers {
-	width: 25px;
-	margin: 20px 100px;
-	position: relative;
+.Speler_Checkbox{
+	width: 24px;
+    height: 24px;
+    position: relative;
+    top: 6px;
+}
+[type=checkbox]{
+    padding: 0;
 }
 
-.Spelers .checkbox {
-	cursor: pointer;
-	position: absolute;
-	width: 25px;
-	height: 25px;
-	top: 0;
-  	left: 0;
-	background: #eee;
-	border:1px solid #ddd;
+input[type="checkbox" i] {
+    margin: 3px 3px 3px 4px;
+    -webkit-appearance: checkbox;
+    box-sizing: border-box;
+    background-color: initial;
+    margin: 3px 0.5ex;
+    padding: initial;
+    border: initial;
 }
 
-.Spelers .checkbox:after {
-	opacity: 0.2;
-	content: '';
-	position: absolute;
-	width: 9px;
-	height: 5px;
-	background: transparent;
-	top: 6px;
-	left: 7px;
-	border: 3px solid #333;
-	border-top: none;
-	border-right: none;
-
-	transform: rotate(-45deg);
-}
-/**
- * Create the hover event of the tick
- */
-.Speler .checkbox:hover::after {
-	opacity: 0.5;
-}
-
-/**
- * Create the checkbox state for the tick
- */
-.Speler input[type=checkbox]:checked + label:after {
-	opacity: 1;
+input {
+    -webkit-appearance: textfield;
+    background-color: white;
+    -webkit-rtl-ordering: logical;
+    user-select: text;
+    cursor: auto;
+    padding: 1px;
+    border-width: 2px;
+    border-style: inset;
+    border-color: initial;
+    border-image: initial;
+    text-rendering: auto;
+    color: initial;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    margin: 0em 0em 0em 0em;
+    font: 13.3333px Arial;
+    -webkit-writing-mode: horizontal-tb;
 }
