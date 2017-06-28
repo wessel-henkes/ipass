@@ -60,10 +60,14 @@ function getVeldpositie(data,team){
 
 function load(){
 	$(".card").hide();
+	var item = JSON.parse(window.sessionStorage.getItem("WedstrijdData"));
+	var wedstrijd_id  = item.id;
+	var team_thuis_id = item.team_thuis_id;
+	var team_uit_id   = item.team_uit_id;
 	$.ajax({
 		url: "restservices/app/oopstelling",
 		method: 'POST',
-		data:{"team_thuis_id":1,"team_uit_id":2,"wedstrijd_id":3},
+		data:{"team_thuis_id":team_thuis_id,"team_uit_id":team_uit_id,"wedstrijd_id":wedstrijd_id},
 		beforeSend: function (xhr) {
 		var token = window.sessionStorage.getItem("sessionToken");
 		xhr.setRequestHeader( 'Authorization', 'Bearer ' + token);
